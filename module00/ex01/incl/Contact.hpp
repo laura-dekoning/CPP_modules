@@ -6,12 +6,39 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/01 19:33:16 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/06/01 19:34:08 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/06/02 19:45:21 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
+
+
+# include <string>
+
+class Contact
+{
+	private:
+		std::string	_firstName;
+		std::string	_lastName;
+		std::string	_nickName;
+		std::string	_phoneNumber;
+		std::string	_darkestSecret;
+
+	public:
+		// Setters
+		void	setFirstName(std::string firstName);
+		void	setLastName(std::string lastName);
+		void	setNickName(std::string nickName);
+		void	setPhoneNumber(std::string phoneNumber);
+		void	setDarkestSecret(std::string darkestSecret);
+		
+		// Getters
+
+};
+	
+
+
 
 
 #endif
