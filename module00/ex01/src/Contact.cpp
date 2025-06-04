@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/01 19:27:16 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/06/04 18:36:15 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/06/04 19:19:08 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,9 @@ void	Contact::displayFullInfo(int index) {
 	nick = getNickName();
 	phone = getPhoneNumber();
 	secret = getDarkestSecret();
-	std::cout
+	std::cout << "First Name: " << first << std::endl;
+	std::cout << "Last Name: " << last << std::endl;
+	std::cout << "Nick Name: " << nick << std::endl;
+	std::cout << "Phone Number: " << phone << std::endl;
+	std::cout << "Darkest Secret: " << secret << std::endl;
 }

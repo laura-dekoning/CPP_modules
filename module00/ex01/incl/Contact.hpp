@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/01 19:33:16 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/06/04 18:30:19 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/06/04 19:21:15 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ class	Contact
 		std::string	getPhoneNumber() const;
 		std::string	getDarkestSecret() const;
 
-		void	displayFullInfo(int	index);
+		void	displayFullInfo();
 };
 
 

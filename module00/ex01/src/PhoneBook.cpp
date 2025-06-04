@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/01 19:27:16 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/06/04 18:20:01 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/06/04 19:28:57 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,23 @@ void	PhoneBook::addContact() {
 	_contacts[_index % 8] = newContact;
 	_index++;
 }
+void	PhoneBook::showContacts() {
+
+}
+
 
 void	PhoneBook::searchContact() {
+	std::string	input;
+	int			i;
 
+	//show all contacts
+
+	showContacts();
+	std::cout << "Choose which contact you want to display" << std::endl;
+	std::getline(std::cin, input);
+	i = std::stoi(input);
+	if (i < 0 || i > 7)
+		return ;
+
+	_contacts[i].displayFullInfo();
 }
