@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/01 19:33:16 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/06/02 19:45:21 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/06/04 18:30:19 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 # include <string>
 
-class Contact
+class	Contact
 {
 	private:
 		std::string	_firstName;
@@ -26,17 +26,26 @@ class Contact
 		std::string	_darkestSecret;
 
 	public:
+		Contact();
+		~Contact();
+
 		// Setters
-		void	setFirstName(std::string firstName);
-		void	setLastName(std::string lastName);
-		void	setNickName(std::string nickName);
-		void	setPhoneNumber(std::string phoneNumber);
-		void	setDarkestSecret(std::string darkestSecret);
+		bool	setFirstName(std::string firstName);
+		bool	setLastName(std::string lastName);
+		bool	setNickName(std::string nickName);
+		bool	setPhoneNumber(std::string phoneNumber);
+		bool	setDarkestSecret(std::string darkestSecret);
 		
 		// Getters
+		std::string	getFirstName() const;
+		std::string	getLastName() const;
+		std::string	getNickName() const;
+		std::string	getPhoneNumber() const;
+		std::string	getDarkestSecret() const;
 
+		void	displayFullInfo(int	index);
 };
-	
+
 
 
 

@@ -6,20 +6,23 @@
 #    By: lade-kon <lade-kon@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/06/01 18:24:16 by lade-kon      #+#    #+#                  #
-#    Updated: 2025/06/01 19:27:27 by lade-kon      ########   odam.nl          #
+#    Updated: 2025/06/04 18:06:08 by lade-kon      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:= phonebook
 
-CC			:= c++
-FLAGS		:= -Wall -Wextra -Werror -std=c++11 -g -fsanitize=address
+CC			:=	c++
+FLAGS		:=	-Wall -Wextra -Werror -std=c++11 -g -fsanitize=address
 
-INCL		:= incl
-INCLUDES	:= -I $(INCL)
+INCL		:=	incl
+INCLUDES	:=	-I $(INCL)
 
-SRC_DIR		:= src
-SRC_FILES	:= phonebook.cpp
+SRC_DIR		:=	src
+SRC_FILES	:=	main.cpp \
+				PhoneBook.cpp \
+				Contact.cpp
+
 SRC			:=	$(addprefix $(SRC_DIR)/, $(SRC_FILES))
 
 OBJ_DIR		:=	obj
@@ -38,7 +41,7 @@ $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 	@echo "${GREEN}Completed${RESET}"
 
-$(OBJ_DIR)%.o:$(SRC_DIR)%.cpp
+$(OBJ_DIR)/%.o:$(SRC_DIR)/%.cpp
 	 $(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
 
 clean :
