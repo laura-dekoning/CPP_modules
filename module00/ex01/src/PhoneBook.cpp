@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/01 19:27:16 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/06/18 15:02:17 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/06/18 18:41:39 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	PhoneBook::addContact() {
 	{
 		std::cout << "Oh no, there is only room for 8 contacts!" << std::endl;
 		std::cout << "Contact 1 will be overwritten..." << std::endl;
+		_index = 0;
 	}
 
 	std::cout << "Enter First Name:" << std::endl;
@@ -53,12 +54,16 @@ void	PhoneBook::addContact() {
 	if (!newContact.setDarkestSecret(input))
 		return ;
 
-	_contacts[_index % 8] = newContact;
+	_contacts[_index] = newContact;
 	_index++;
 }
 
-void	PhoneBook::showContacts() {
+void	PhoneBook::showContacts(Contact *_contacts, int contactCount) {
 
+	for (int i = 0; i < contactCount; i++)
+	{
+		std::cout << trim(_contacts[i].getFirstName()) << std::endl;
+	}
 }
 
 
