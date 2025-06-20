@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/01 19:27:16 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/06/04 19:19:08 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/06/20 17:24:39 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,13 @@
 #include <string>
 #include "Contact.hpp"
 
-Contact::Contact() {std::cout << "Contact constructed" << std::endl;}
-Contact::~Contact() {std::cout << "Contact deconstructed" << std::endl;}
+Contact::Contact(){std::cout << "Contact constructed" << std::endl;}
+Contact::~Contact(){std::cout << "Contact deconstructed" << std::endl;}
 
 // SETTERS //
 
-bool	Contact::setFirstName(std::string firstName) {
-	if (firstName.empty())
-	{
+bool	Contact::setFirstName(std::string firstName){
+	if (firstName.empty()){
 		std::cout << "First Name cannot be empty!" << std::endl;
 		return false;
 	}
@@ -29,9 +28,8 @@ bool	Contact::setFirstName(std::string firstName) {
 	return true ;
 }
 
-bool	Contact::setLastName(std::string lastName) {
-	if (lastName.empty())
-	{
+bool	Contact::setLastName(std::string lastName){
+	if (lastName.empty()){
 		std::cout << "Last Name cannot be empty!" << std::endl;
 		return false;
 	}
@@ -39,9 +37,8 @@ bool	Contact::setLastName(std::string lastName) {
 	return true ;
 }
 
-bool	Contact::setNickName(std::string nickName) {
-	if (nickName.empty())
-	{
+bool	Contact::setNickName(std::string nickName){
+	if (nickName.empty()){
 		std::cout << "Nick Name cannot be empty!" << std::endl;
 		return false;
 	}
@@ -49,19 +46,33 @@ bool	Contact::setNickName(std::string nickName) {
 	return true ;
 }
 
-bool	Contact::setPhoneNumber(std::string phoneNumber) {
-	if (phoneNumber.empty())
-	{
+bool	Contact::checkPhoneNumber(std::string phoneNumber){
+	for(size_t i = 0; i < phoneNumber.length(); i++){
+		if (!std::isdigit(phoneNumber[i]))
+			return false;
+	}
+	return true;
+}
+
+bool	Contact::setPhoneNumber(std::string phoneNumber){
+	if (phoneNumber.empty()){
 		std::cout << "Phone Number cannot be empty!" << std::endl;
+		return false;
+	}
+	else if (!Contact::checkPhoneNumber(phoneNumber)){
+		std::cout << "Phone Number can only consist digits!" << std::endl;
+		return false;
+	}
+	else if (phoneNumber.length() > 10){
+		std::cout << "Yoo this number is too long bro!" << std::endl;
 		return false;
 	}
 	_phoneNumber = phoneNumber;
 	return true ;
 }
 
-bool	Contact::setDarkestSecret(std::string darkestSecret) {
-	if (darkestSecret.empty())
-	{
+bool	Contact::setDarkestSecret(std::string darkestSecret){
+	if (darkestSecret.empty()){
 		std::cout << "Darkest Secret cannot be empty!" << std::endl;
 		return false;
 	}
@@ -91,22 +102,10 @@ std::string	Contact::getDarkestSecret() const {
 	return _darkestSecret;
 }
 
-void	Contact::displayFullInfo(int index) {
-	std::string	first, last, nick, phone, secret;
-
-	if (index < 0 || index > 7)
-	{
-		std::cout << "Thid is not a valid index..." << std::endl;
-		return ;
-	}
-	first = getFirstName();
-	last = getLastName();
-	nick = getNickName();
-	phone = getPhoneNumber();
-	secret = getDarkestSecret();
-	std::cout << "First Name: " << first << std::endl;
-	std::cout << "Last Name: " << last << std::endl;
-	std::cout << "Nick Name: " << nick << std::endl;
-	std::cout << "Phone Number: " << phone << std::endl;
-	std::cout << "Darkest Secret: " << secret << std::endl;
+void	Contact::displayFullInfo(){
+	std::cout << "First Name: " << getFirstName() << std::endl;
+	std::cout << "Last Name: " << getLastName() << std::endl;
+	std::cout << "Nick Name: " << getNickName() << std::endl;
+	std::cout << "Phone Number: " << getPhoneNumber() << std::endl;
+	std::cout << "Darkest Secret: " << getDarkestSecret() << std::endl;
 }
