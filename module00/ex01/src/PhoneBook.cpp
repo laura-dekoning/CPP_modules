@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/01 19:27:16 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/06/20 17:48:24 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/06/20 17:57:37 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 
-PhoneBook::PhoneBook() : _index(0){std::cout << "PhoneBook constructed" << std::endl;}
-PhoneBook::~PhoneBook(){std::cout << "PhoneBook deconstructed" << std::endl;}
+PhoneBook::PhoneBook() : _index(0), _full(0){}
+PhoneBook::~PhoneBook(){}
 
 void	PhoneBook::addContact(){
 	Contact		newContact;
@@ -97,7 +97,7 @@ void	PhoneBook::searchContact(){
 		return ;
 	}
 	PhoneBook::showContacts(_contacts);
-	std::cout << "Choose option (1 - 8)" << std::endl;
+	std::cout << "\033[1m" << "Choose option (1 - 8): " << "\033[0m";
 	std::getline(std::cin, input);
 	try {
 		i = std::stoi(input);

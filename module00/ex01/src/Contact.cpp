@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/01 19:27:16 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/06/20 17:24:39 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/06/20 17:57:56 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #include <string>
 #include "Contact.hpp"
 
-Contact::Contact(){std::cout << "Contact constructed" << std::endl;}
-Contact::~Contact(){std::cout << "Contact deconstructed" << std::endl;}
+Contact::Contact(){}
+Contact::~Contact(){}
 
 // SETTERS //
 
