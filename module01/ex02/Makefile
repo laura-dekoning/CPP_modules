@@ -5,24 +5,21 @@
 #                                                      +:+                     #
 #    By: lade-kon <lade-kon@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
-#    Created: 2025/06/23 13:24:16 by lade-kon      #+#    #+#                  #
-#    Updated: 2025/06/28 12:46:05 by lade-kon      ########   odam.nl          #
+#    Created: 2025/06/28 11:24:16 by lade-kon      #+#    #+#                  #
+#    Updated: 2025/06/28 12:45:40 by lade-kon      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:=	zombie
+NAME		:=	brain
 
-CC			:=	c++
+CC			:=	clang++
 FLAGS		:=	-Wall -Wextra -Werror -std=c++11 -g -fsanitize=address
 
 INCL		:=	incl
 INCLUDES	:=	-I $(INCL)
 
 SRC_DIR		:=	src
-SRC_FILES	:=	main.cpp \
-				Zombie.cpp \
-				newZombie.cpp \
-				randomChump.cpp
+SRC_FILES	:=	main.cpp
 
 SRC			:=	$(addprefix $(SRC_DIR)/, $(SRC_FILES))
 

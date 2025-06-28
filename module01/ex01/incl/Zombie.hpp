@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   randomChump.cpp                                    :+:    :+:            */
+/*   Zombie.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/23 13:24:16 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/06/28 11:08:36 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/06/28 12:21:05 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Zombie.hpp"
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-void randomChump( std::string name ){
-	Zombie	randomChumpG(name);
-	randomChumpG.announce();
-}
+# include <string>
+# include <iostream>
+
+class Zombie
+{
+private:
+	std::string	_name;
+public:
+	Zombie();
+	~Zombie();
+	void	setName(std::string name);
+	void	announce(void);
+};
+
+Zombie	*zombieHorde(int N, std::string name);
+
+#endif

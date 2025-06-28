@@ -5,19 +5,26 @@
 /*                                                     +:+                    */
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/06/23 13:24:16 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/06/28 11:11:00 by lade-kon      ########   odam.nl         */
+/*   Created: 2025/06/28 12:24:16 by lade-kon      #+#    #+#                 */
+/*   Updated: 2025/06/28 13:31:56 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Zombie.hpp"
+#include <string>
+#include <iostream>
 
 int	main(){
-	Zombie zombieD("Dirk");
-	zombieD.announce();
-	Zombie *zombieF = newZombie("Frank");
-	zombieF->announce();
-	delete zombieF;
-	randomChump("Gijs");
-	return 0;
+	std::string	string = "HI THIS IS BRAIN";
+	std::string	*stringPTR = &string;
+	std::string	&stringREF = string;
+
+	//Printing memory addresses//
+	std::cout << &string << std::endl;
+	std::cout << stringPTR << std::endl;
+	std::cout << &stringREF << std::endl;
+
+	//Printing values//
+	std::cout << string << std::endl;
+	std::cout << *stringPTR << std::endl;
+	std::cout << stringREF << std::endl;
 }

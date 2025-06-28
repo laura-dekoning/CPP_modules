@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/23 13:24:16 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/06/26 20:32:15 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/06/28 12:21:18 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Zombie
 {
 private:
-	std::string	name;
+	std::string	_name;
 public:
 	Zombie(std::string name);
 	~Zombie();
