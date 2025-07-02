@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/30 16:01:42 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/06/30 18:06:31 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/07/02 15:36:03 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ Weapon::Weapon(std::string type){
 Weapon::~Weapon(){}
 
 void	Weapon::setType(std::string weapon){
-	this->_type = weapon;
+	_type = weapon;
 }
 
-std::string	Weapon::getType(){
+const std::string	&Weapon::getType() const {
 	return _type;
 }
