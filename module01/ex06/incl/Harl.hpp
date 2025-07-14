@@ -6,12 +6,12 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/14 15:51:12 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/07/14 17:26:23 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/07/14 17:33:38 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-# define HARL_HPP
+#ifndef HARLFILTER_HPP
+# define HARLFILTER_HPP
 
 # include <string>
 # include <iostream>

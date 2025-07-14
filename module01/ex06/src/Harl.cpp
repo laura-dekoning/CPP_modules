@@ -6,11 +6,11 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/14 15:54:15 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/07/14 17:26:05 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/07/14 17:33:54 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Harl.hpp"
+#include "HarlFilter.hpp"
 
 void	Harl::_debug(void){
 

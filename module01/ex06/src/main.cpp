@@ -1,33 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Harl.hpp                                           :+:    :+:            */
+/*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/07/14 15:51:12 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/07/14 17:26:23 by lade-kon      ########   odam.nl         */
+/*   Created: 2025/07/14 15:54:51 by lade-kon      #+#    #+#                 */
+/*   Updated: 2025/07/14 17:36:29 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-# define HARL_HPP
+#include "HarlFilter.hpp"
 
-# include <string>
-# include <iostream>
+int	main(int argc, char **argv){
 
-class Harl
-{
-	private:
-		void	_debug(void);
-		void	_info(void);
-		void	_warning(void);
-		void	_error(void);
-
-	public:
-		void	complain(std::string level);
-};
-
-typedef void	(Harl::*HarlFunc)();
-
-#endif
+	
+	return 0;
+}
