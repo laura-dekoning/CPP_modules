@@ -6,7 +6,7 @@
 #    By: lade-kon <lade-kon@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/06/23 13:24:16 by lade-kon      #+#    #+#                  #
-#    Updated: 2025/07/02 08:49:42 by lade-kon      ########   odam.nl          #
+#    Updated: 2025/07/14 15:18:25 by lade-kon      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ INCLUDES	:=	-I $(INCL)
 
 SRC_DIR		:=	src
 SRC_FILES	:=	main.cpp \
-				
+				utils.cpp
 
 SRC			:=	$(addprefix $(SRC_DIR)/, $(SRC_FILES))
 
