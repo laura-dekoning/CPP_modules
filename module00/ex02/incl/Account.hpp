@@ -1,6 +1,6 @@
 // ************************************************************************** //
 //                                                                            //
-//                Account.hpp for GlobalBanksters United                //
+//                Account.hpp for GlobalBanksters United                      //
 //                Created on  : Thu Nov 20 19:43:15 1989                      //
 //                Last update : Wed Jan 04 14:54:06 1992                      //
 //                Made by : Brad "Buddy" McLane <bm@gbu.com>                  //
@@ -8,52 +8,56 @@
 // ************************************************************************** //
 
 
-#pragma once
-#ifndef __ACCOUNT_H__
-#define __ACCOUNT_H__
+// #pragma once
+// #ifndef __ACCOUNT_H__
+// #define __ACCOUNT_H__
+
+
+#ifndef ACCOUNT_HPP
+#define ACCOUNT_HPP
+
+# include <string>
+# include <iostream>
 
 // ************************************************************************** //
 //                               Account Class                                //
 // ************************************************************************** //
 
-class Account {
+class Account
+{
+	public:
 
+		typedef Account		t;
 
-public:
+		static int	getNbAccounts( void );
+		static int	getTotalAmount( void );
+		static int	getNbDeposits( void );
+		static int	getNbWithdrawals( void );
+		static void	displayAccountsInfos( void );
 
-	typedef Account		t;
+		Account( int initial_deposit );
+		~Account( void );
 
-	static int	getNbAccounts( void );
-	static int	getTotalAmount( void );
-	static int	getNbDeposits( void );
-	static int	getNbWithdrawals( void );
-	static void	displayAccountsInfos( void );
+		void	makeDeposit( int deposit );
+		bool	makeWithdrawal( int withdrawal );
+		int		checkAmount( void ) const;
+		void	displayStatus( void ) const;
 
-	Account( int initial_deposit );
-	~Account( void );
+	private:
 
-	void	makeDeposit( int deposit );
-	bool	makeWithdrawal( int withdrawal );
-	int		checkAmount( void ) const;
-	void	displayStatus( void ) const;
+		static int	_nbAccounts;
+		static int	_totalAmount;
+		static int	_totalNbDeposits;
+		static int	_totalNbWithdrawals;
 
+		static void	_displayTimestamp( void );
 
-private:
+		int				_accountIndex;
+		int				_amount;
+		int				_nbDeposits;
+		int				_nbWithdrawals;
 
-	static int	_nbAccounts;
-	static int	_totalAmount;
-	static int	_totalNbDeposits;
-	static int	_totalNbWithdrawals;
-
-	static void	_displayTimestamp( void );
-
-	int				_accountIndex;
-	int				_amount;
-	int				_nbDeposits;
-	int				_nbWithdrawals;
-
-	Account( void );
-
+		Account( void );
 };
 
 
