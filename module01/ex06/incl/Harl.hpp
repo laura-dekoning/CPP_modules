@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/14 15:51:12 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/07/14 17:33:38 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/07/15 16:32:51 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,15 @@ class Harl
 
 	public:
 		void	complain(std::string level);
+};
+
+enum Level
+{ 
+	DEBUG,
+	INFO,
+	WARNING,
+	ERROR,
+	INVALID
 };
 
 typedef void	(Harl::*HarlFunc)();
