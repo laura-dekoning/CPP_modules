@@ -6,11 +6,14 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/20 18:30:34 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/07/22 20:52:47 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/07/28 12:56:55 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
+#include <ctime>
+#include <string>
+#include <iostream>
 
 int	Account::_nbAccounts = 0;
 int	Account::_totalAmount = 0;
@@ -130,7 +133,12 @@ void	Account::displayStatus() const{
 }
 
 //PRIVATE//
-static void	_displayTimestamp(){
+void	Account::_displayTimestamp(){
+	std::time_t	now = std::time(nullptr);
+	std::tm		*local = std::localtime(&now);
 
+	char	buffer[50];
+
+	std::strftime(buffer, sizeof(buffer), "[%Y%m%d_%H%M%S]", local);
+	std::cout << buffer;
 }
-

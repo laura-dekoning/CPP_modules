@@ -8,16 +8,13 @@
 // ************************************************************************** //
 
 
-// #pragma once
-// #ifndef __ACCOUNT_H__
-// #define __ACCOUNT_H__
+#pragma once
+#ifndef __ACCOUNT_H__
+#define __ACCOUNT_H__
 
 
-#ifndef ACCOUNT_HPP
-#define ACCOUNT_HPP
-
-# include <string>
-# include <iostream>
+// #ifndef ACCOUNT_HPP
+// #define ACCOUNT_HPP
 
 // ************************************************************************** //
 //                               Account Class                                //

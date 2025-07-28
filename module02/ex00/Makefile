@@ -5,12 +5,12 @@
 #                                                      +:+                     #
 #    By: lade-kon <lade-kon@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
-#    Created: 2025/06/20 18:06:16 by lade-kon      #+#    #+#                  #
-#    Updated: 2025/07/28 12:50:10 by lade-kon      ########   odam.nl          #
+#    Created: 2025/06/23 13:24:16 by lade-kon      #+#    #+#                  #
+#    Updated: 2025/07/14 17:26:41 by lade-kon      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:= account
+NAME		:=	Harl
 
 CC			:=	c++
 FLAGS		:=	-Wall -Wextra -Werror -std=c++11 -g -fsanitize=address
@@ -19,8 +19,8 @@ INCL		:=	incl
 INCLUDES	:=	-I $(INCL)
 
 SRC_DIR		:=	src
-SRC_FILES	:=	Account.cpp \
-				tests.cpp
+SRC_FILES	:=	main.cpp \
+				Harl.cpp
 
 SRC			:=	$(addprefix $(SRC_DIR)/, $(SRC_FILES))
 
@@ -31,16 +31,16 @@ OBJ			:=	$(addprefix $(OBJ_DIR)/, $(OBJ_FILES))
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	@ echo "${BLUE} $(NAME) compiling...${RESET}"
+	@ echo "${BLUE}$(NAME) compiling...${RESET}"
 	 $(CC) $^ $(FLAGS) $(INCLUDES) -o $(NAME)
-	@ echo "${GREEN} $(NAME) made!${RESET}"
+	@ echo "${GREEN}$(NAME) made!${RESET}"
 
-$(OBJ_DIR) :
+$(OBJ_DIR):
 	@echo "${PURPLE}Making object directories${RESET}"
 	mkdir -p $(OBJ_DIR)
 	@echo "${GREEN}Completed${RESET}"
 
-$(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp |  $(OBJ_DIR)
+$(OBJ_DIR)/%.o:$(SRC_DIR)/%.cpp | $(OBJ_DIR)
 	 $(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
 
 clean :
