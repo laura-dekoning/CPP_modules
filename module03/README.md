@@ -1,50 +1,37 @@
-Welcome to the 80s and their unbelievable technology! Write a program that behaves
-like a crappy awesome phonebook software.
+Why And When To Use "Inheritance"?
+- It is useful for code reusability: reuse attributes and methods of an existing class when you create a new class.
 
-You have to implement two classes:
+Mode
 
-• PhoneBook
-	◦ It has an array of contacts.
-	◦ It can store a maximum of 8 contacts. If the user tries to add a 9th contact,
-	replace the oldest one by the new one.
-	◦ Please note that dynamic allocation is forbidden.
+Description
 
-• Contact
-	◦ Stands for a phonebook contact.
+Public Inheritance Mode
 
-In your code, the phonebook must be instantiated as an instance of the PhoneBook
-class. Same thing for the contacts. Each one of them must be instantiated as an instance
-of the Contact class. You’re free to design the classes as you like but keep in mind that
-anything that will always be used inside a class is private, and that anything that can be
-used outside a class is public.
+Public member of the base class will become public in the derived class and protected members of the base class will become protected in the derived class.
 
-At program start-up, the phonebook is empty and the user is prompted to enter one
-of three commands. The program only accepts ADD, SEARCH and EXIT.
+Protected Inheritance Mode
 
-• ADD: save a new contact
-	◦ If the user enters this command, they are prompted to input the information
-	of the new contact one field at a time. Once all the fields have been completed,
-	add the contact to the phonebook.
-	◦ The contact fields are: first name, last name, nickname, phone number, and
-	darkest secret. A saved contact can’t have empty fields.
+Both public and protected members of the base class will become protected in the derived class.
 
-• SEARCH: display a specific contact
-	◦ Display the saved contacts as a list of 4 columns: index, first name, last
-	name and nickname.
-	◦ Each column must be 10 characters wide. A pipe character (’|’) separates
-	them. The text must be right-aligned. If the text is longer than the column,
-	it must be truncated and the last displayable character must be replaced by a
-	dot (’.’).
-	◦ Then, prompt the user again for the index of the entry to display. If the index
-	is out of range or wrong, define a relevant behavior. Otherwise, display the
-	contact information, one field per line.
+Private Inheritance Mode
 
-• EXIT
-	◦ The program quits and the contacts are lost forever!
+Both public members and protected members of the base class will become private in the derived class. Private mode is the default mode that is applied when we don't specify any mode.
 
-• Any other input is ignored.
 
-Once a command has been correctly executed, the program waits for another one. It
-stops when the user inputs EXIT.
+Effects of Inheritance
+Let's see how different components of class are affected in inheritance:
 
-Give a relevant name to your executable.
+Static Members and Inheritance
+In C++, static members belong to the class itself, not to any object. This means static variables and methods are shared across all instances of the class. When it comes to inheritance, static members from the base class are not inherited by the derived class in the traditional way. However, they can still be accessed using the class name like className::staticMember.
+
+Friend Function and Class in Inheritance
+Friend functions and classes in inheritance provides functions or classes to access private and protected members of a class, providing flexibility and better control over class interactions. In inheritance, friend function and classes are not inherited by the base class. It means that the classes and functions declared as friends for the base class does not automatically become a friend for derived class.
+
+Constructors and Destructors in Inheritance
+Constructors and Destructors are generally defined by the programmer and if not, the compiler automatically creates them, so they are present in every class in C++. Now, the question arises what happens to the constructor and destructor when a class is inherited by another class.
+
+In C++ inheritance, the constructors and destructors are not inherited by the derived class, but we can call the constructor of the base class in derived class.
+
+The constructors will be called by the complier in the order in which they are inherited. It means that base class constructors will be called first, then derived class constructors will be called.
+The destructors will be called in reverse order in which the compiler is declared.
+We can also call the constructors and destructors manually in the derived class.

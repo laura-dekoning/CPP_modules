@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/28 15:09:08 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/08/04 14:46:15 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/08/04 15:16:46 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ ClapTrap::ClapTrap(std::string name)
 }
 
 ClapTrap::~ClapTrap(){
-	std::cout << "ClapTrap " << _name << "has been deconstructed!" << std::endl;
+	std::cout << "ClapTrap " << _name << " has been deconstructed!" << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target){
