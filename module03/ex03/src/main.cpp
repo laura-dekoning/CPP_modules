@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   FragTrap.hpp                                       :+:    :+:            */
+/*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/08/04 14:57:37 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/08/05 18:26:58 by lade-kon      ########   odam.nl         */
+/*   Created: 2025/08/04 14:35:24 by lade-kon      #+#    #+#                 */
+/*   Updated: 2025/08/05 18:26:25 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#include <iostream>
+#include "FragTrap.hpp"
 
-# include <string>
-# include <iostream>
-# include "ClapTrap.hpp"
+int main() {
+	std::cout << "Creating FragTrap...\n";
+	FragTrap frag("FR4G");
 
-class FragTrap : public ClapTrap
-{
-public:
-	FragTrap(std::string name);
-	~FragTrap();
+	frag.attack("Bandit");
+	frag.takeDamage(20);
+	frag.beRepaired(15);
+	frag.highFivesGuys();
 
-	void	highFivesGuys(void);
+	std::cout << "Destroying FragTrap...\n";
+	return 0;
 }
-
-
-#endif

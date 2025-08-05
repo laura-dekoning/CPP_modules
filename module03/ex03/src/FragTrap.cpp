@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/04 14:57:04 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/08/05 18:26:32 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/08/05 18:18:23 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ FragTrap::~FragTrap(){
 	std::cout << "Deconstruction of FragTrap " << _name << " is completed!" << std::endl;
 }
 
-void	FragTrap::highFivesGuys(void){
-	std::cout << "FragTrap " << getName() << " wants to get some highfives! ✋" << std::endl;
+void	FragTrap::highFiveGuys(void){
+	std::cout << "FragTrap " << getName() << " wants to get some highfives!!" << std::endl;
 }

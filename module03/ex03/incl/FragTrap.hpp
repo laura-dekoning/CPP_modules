@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/04 14:57:37 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/08/05 18:26:58 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/08/05 18:12:40 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
 	FragTrap(std::string name);
 	~FragTrap();
 
-	void	highFivesGuys(void);
+	void	highFiveGuys(void);
 }
 
 

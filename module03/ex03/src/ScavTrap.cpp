@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   FragTrap.cpp                                       :+:    :+:            */
+/*   ScavTrap.cpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/08/04 14:57:04 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/08/05 18:26:32 by lade-kon      ########   odam.nl         */
+/*   Created: 2025/08/04 13:38:04 by lade-kon      #+#    #+#                 */
+/*   Updated: 2025/08/04 14:47:43 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
-#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name){
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name){
 	_hitPoints = 100;
-	_energyPoints = 100;
-	_attackDamage = 30;
-	std::cout << "Construction of FragTrap " << _name << " is completed!" << std::endl;
+	_energyPoints = 50;
+	_attackDamage = 20;
+	std::cout << "ScavTrap " << _name << " is constructed!" << std::endl;
 }
 
-FragTrap::~FragTrap(){
-	std::cout << "Deconstruction of FragTrap " << _name << " is completed!" << std::endl;
+ScavTrap::~ScavTrap(){
+	std::cout << "ScavTrap " << _name << " is deconstructed!" << std::endl;
 }
 
-void	FragTrap::highFivesGuys(void){
-	std::cout << "FragTrap " << getName() << " wants to get some highfives! ✋" << std::endl;
+void	ScavTrap::guardGate(){
+	std::cout << "ScavTrap " << getName() << " is now in Gate keeper mode!" << std::endl;
 }
