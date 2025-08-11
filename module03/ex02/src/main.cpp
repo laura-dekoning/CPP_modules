@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/04 14:35:24 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/08/11 16:06:18 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/08/11 16:33:27 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,27 @@ int main() {
 	std::cout << "\n--- FragTrap Test Begins ---\n" << std::endl;
 
 	// Create a FragTrap instance
-	FragTrap scav("FR4G-TR4P");
+	FragTrap frag("FR4G-TR4P");
 
 	// Perform an attack
-	scav.attack("the bitch");
+	frag.attack("the bitch");
 
 	// Take some damage
-	scav.takeDamage(30);
+	frag.takeDamage(30);
 
 	// Repair some health
-	scav.beRepaired(20);
+	frag.beRepaired(20);
 
 	// Activate special mode
-	scav.highFivesGuys();
+	frag.highFivesGuys();
 
 	// Try to burn through energy
-	for (int i = 0; i < 60; ++i) {
-		scav.attack("practice dummy");
+	for (int i = 0; i < 105; ++i) {
+		frag.attack("practice dummy");
 	}
 
 	// Try repairing when out of energy
-	scav.beRepaired(10);
+	frag.beRepaired(10);
 
 	std::cout << "\n--- FragTrap Test Ends ---\n" << std::endl;
 

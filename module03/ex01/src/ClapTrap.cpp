@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/28 15:09:08 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/08/04 15:16:46 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/08/11 16:35:07 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void ClapTrap::beRepaired(unsigned int amount){
 		setHit(getHit() + amount);
 		setEnergy(getEnergy() - 1);
 
-		std::cout << "🔧 ClapTrap " << getName() << " patched itself up for " << amount << " health points! Feeling better already. ❤️ Current HP: " << getHit() << std::endl;
+		std::cout << "🔧 ClapTrap " << getName() << " patched itself up for " << amount << " health points! Feeling better already. Current HP: " << getHit() << " ❤️" << std::endl;
 	}
 	else {
 		std::cout << "😵 ClapTrap " << getName() << " can't repair — no energy or too damaged!" << std::endl;
