@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   FragTrap.hpp                                       :+:    :+:            */
+/*   ScavTrap.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/08/04 14:57:37 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/08/11 16:10:53 by lade-kon      ########   odam.nl         */
+/*   Created: 2025/08/04 13:10:35 by lade-kon      #+#    #+#                 */
+/*   Updated: 2025/08/04 14:43:40 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-# define FRAGTRAP_HPP
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
 # include "ClapTrap.hpp"
 # include <string>
-# include <iostream>
 
-class FragTrap : public ClapTrap
+class ScavTrap : public ClapTrap
 {
 public:
-	FragTrap(std::string name);
-	~FragTrap();
+	ScavTrap(std::string name);
+	~ScavTrap();
 
-	void	highFivesGuys(void);
+	void	guardGate();
 };
 
 

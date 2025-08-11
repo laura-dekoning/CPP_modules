@@ -6,26 +6,25 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/04 14:57:04 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/08/11 16:16:30 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/08/05 18:18:23 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "FragTrap.hpp"
 #include <iostream>
 #include <string>
+#include "FragTrap.hpp"
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name){
 	_hitPoints = 100;
 	_energyPoints = 100;
 	_attackDamage = 30;
-	std::cout << "And now FragTrap " << _name << " is constructed" << std::endl;
+	std::cout << "Construction of FragTrap " << _name << " is completed!" << std::endl;
 }
 
-~FragTrap(){
-	std::cout << "It was time, FragTrap " << _name << " has been deconstructed" << std::endl;
+FragTrap::~FragTrap(){
+	std::cout << "Deconstruction of FragTrap " << _name << " is completed!" << std::endl;
 }
 
-void	highFivesGuys(void){
-	std::cout << "FragTrap " << _name << " shouts: \"High five, everyone! Don’t leave me hangin’!\" 🙌" << std::endl;
+void	FragTrap::highFiveGuys(void){
+	std::cout << "FragTrap " << getName() << " wants to get some highfives!!" << std::endl;
 }
