@@ -6,11 +6,11 @@
 #    By: lade-kon <lade-kon@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/06/23 13:24:16 by lade-kon      #+#    #+#                  #
-#    Updated: 2025/07/14 17:26:41 by lade-kon      ########   odam.nl          #
+#    Updated: 2025/09/01 17:26:20 by lade-kon      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:=	Harl
+NAME		:=	Fixed
 
 CC			:=	c++
 FLAGS		:=	-Wall -Wextra -Werror -std=c++11 -g -fsanitize=address
@@ -19,8 +19,8 @@ INCL		:=	incl
 INCLUDES	:=	-I $(INCL)
 
 SRC_DIR		:=	src
-SRC_FILES	:=	main.cpp \
-				Harl.cpp
+SRC_FILES	:=	Fixed.cpp \
+				main.cpp
 
 SRC			:=	$(addprefix $(SRC_DIR)/, $(SRC_FILES))
 

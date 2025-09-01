@@ -1,50 +1,96 @@
-Welcome to the 80s and their unbelievable technology! Write a program that behaves
-like a crappy awesome phonebook software.
+From now on, all your classes must be designed in the Orthodox Canonical Form,
+unless explicitly stated otherwise. They will then implement the four required member
+functions below:
+• Default constructor
+• Copy constructor
+• Copy assignment operator
+• Destructor
 
-You have to implement two classes:
+Orthodox Canonical Form:
 
-• PhoneBook
-	◦ It has an array of contacts.
-	◦ It can store a maximum of 8 contacts. If the user tries to add a 9th contact,
-	replace the oldest one by the new one.
-	◦ Please note that dynamic allocation is forbidden.
+Always pass your object by const references!!
+1. Copy Constructor
+📌 What it is
 
-• Contact
-	◦ Stands for a phonebook contact.
+The copy constructor is called when you create a new object from an existing one.
 
-In your code, the phonebook must be instantiated as an instance of the PhoneBook
-class. Same thing for the contacts. Each one of them must be instantiated as an instance
-of the Contact class. You’re free to design the classes as you like but keep in mind that
-anything that will always be used inside a class is private, and that anything that can be
-used outside a class is public.
+	ClassName(const ClassName& other);
 
-At program start-up, the phonebook is empty and the user is prompted to enter one
-of three commands. The program only accepts ADD, SEARCH and EXIT.
+It gets a reference to another object of the same type and uses it to initialize the new one.
 
-• ADD: save a new contact
-	◦ If the user enters this command, they are prompted to input the information
-	of the new contact one field at a time. Once all the fields have been completed,
-	add the contact to the phonebook.
-	◦ The contact fields are: first name, last name, nickname, phone number, and
-	darkest secret. A saved contact can’t have empty fields.
+📌 When it’s used
 
-• SEARCH: display a specific contact
-	◦ Display the saved contacts as a list of 4 columns: index, first name, last
-	name and nickname.
-	◦ Each column must be 10 characters wide. A pipe character (’|’) separates
-	them. The text must be right-aligned. If the text is longer than the column,
-	it must be truncated and the last displayable character must be replaced by a
-	dot (’.’).
-	◦ Then, prompt the user again for the index of the entry to display. If the index
-	is out of range or wrong, define a relevant behavior. Otherwise, display the
-	contact information, one field per line.
+• Passing an object by value to a function
+• Returning an object by value from a function
+• Explicitly writing:
 
-• EXIT
-	◦ The program quits and the contacts are lost forever!
+	ClassName b(a);   // calls copy constructor
+	ClassName b = a;  // also calls copy constructor (not assignment!)
 
-• Any other input is ignored.
+📌 Why you need it
 
-Once a command has been correctly executed, the program waits for another one. It
-stops when the user inputs EXIT.
+If your class manages resources on the heap (like new-allocated memory, file handles, sockets), the compiler-generated copy constructor does a shallow copy — it just copies the raw pointer, not the data it points to.
+That means two objects now share the same resource, and when both destructors run → 💥 double delete.
 
-Give a relevant name to your executable.
+By writing your own copy constructor, you ensure a deep copy: allocate new resources and duplicate the contents.
+
+2. Copy Assignment Operator
+📌 What it is
+
+The copy assignment operator is called when you already have an object and want to replace its contents with another.
+
+	ClassName& operator=(const ClassName& other);
+
+It must return a reference to *this so you can chain assignments like a = b = c;.
+
+📌 When it’s used
+
+	String a("hello");
+	String b("world");
+	b = a;   // copy assignment operator
+
+
+Notice: here b already exists before the assignment.
+
+📌 Why you need it
+
+If you just copied the raw pointer (shallow copy), you’d again have two objects pointing to the same memory. That leads to double frees and undefined behavior.
+
+By writing your own copy assignment operator:
+
+	1. You free the old resource of the left-hand object.
+	2. You allocate new memory.
+	3. You copy the content from the right-hand side.
+
+
+You think you know integers and floating-point numbers. How cute.
+Please read this 3 pages article (1, 2, 3) to discover that you don’t. Go on, read it.
+Until today, every number you used in your code was basically either an integer or a
+floating-point number, or any of their variants (short, char, long, double, and so forth).
+After reading the article above, it’s safe to assume that integers and floating-point num-
+bers have opposite characteristics.
+But today, things will change. You are going to discover a new and awesome number
+type: fixed-point numbers! Forever missing from the scalar types of most languages,
+fixed-point numbers offer a valuable balance between performance, accuracy, range and
+precision. That explains why fixed-point numbers are particularly applicable to computer
+graphics, sound processing or scientific programming, just to name a few.
+As C++ lacks fixed-point numbers, you’re going to add them. This article from
+Berkeley is a good start. If you have no idea what Berkeley University is, read this
+section of its Wikipedia page.
+7C++ - Module 02
+Ad-hoc polymorphism, operator overloading
+and the Orthodox Canonical class form
+Create a class in Orthodox Canonical Form that represents a fixed-point number:
+• Private members:
+◦ An integer to store the fixed-point number value.
+◦ A static constant integer to store the number of fractional bits. Its value
+will always be the integer literal 8.
+• Public members:
+◦ A default constructor that initializes the fixed-point number value to 0.
+◦ A copy constructor.
+◦ A copy assignment operator overload.
+◦ A destructor.
+◦ A member function int getRawBits( void ) const;
+that returns the raw value of the fixed-point value.
+◦ A member function void setRawBits( int const raw );
+that sets the raw value of the fixed-point number.
