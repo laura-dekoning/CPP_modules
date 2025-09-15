@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/09/01 14:26:13 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/09/15 14:31:06 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/09/15 15:24:02 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,10 @@ class Fixed {
 		Fixed	operator--(int intVal);
 
 		// Min/Max Methods
+		static Fixed&		min(Fixed& _fpVal1, Fixed& _fpVal2);
+		static const Fixed&	min(const Fixed& _fpVal1, const Fixed& _fpVal2);
+		static Fixed&		max(Fixed& _fpVal1, Fixed& _fpVal2);
+		static const Fixed&	manx(const Fixed& _fpVal1, const Fixed& _fpVal2);
 };
 
 std::ostream&	operator<<(std::ostream& out, const Fixed& fixed);

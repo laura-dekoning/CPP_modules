@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/09/01 14:27:52 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/09/15 14:00:21 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/09/15 15:30:46 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,97 @@ int		Fixed::toInt(void) const{
 
 float	Fixed::toFloat(void) const{
 	return _fixedPointValue / 256.0f;
+}
+
+// Comparison Operators: > < >= <= == !=
+bool	operator>(const Fixed& other) const{
+	
+}
+
+bool	operator<(const Fixed& other) const{
+	
+}
+
+bool	operator>=(const Fixed& other) const{
+	
+}
+
+bool	operator<=(const Fixed& other) const{
+	
+}
+
+bool	operator==(const Fixed& other) const{
+	
+}
+
+bool	operator!=(const Fixed& other) const{
+	
+}
+
+
+// Arithmetic Operators: + - * /
+Fixed	operator+(const Fixed& other) const{
+	
+}
+
+Fixed	operator-(const Fixed& other) const{
+	
+}
+
+Fixed	operator*(const Fixed& other) const{
+	
+}
+
+Fixed	operator/(const Fixed& other) const{
+	
+}
+
+
+// Increment/Decrement Operators: ++ -- (pre and post)
+Fixed	operator++(void){
+	
+}
+
+Fixed	operator++(int intVal){
+	
+}
+
+Fixed	operator--(void){
+	
+}
+
+Fixed	operator--(int intVal){
+	
+}
+
+
+// Min/Max Methods
+static Fixed&		min(Fixed& _fpVal1, Fixed& _fpVal2){
+	if (_fpVal1 < _fpVal2)
+		return _fpVal1;
+	else
+		return _fpVal2;
+}
+
+static const Fixed&	min(const Fixed& _fpVal1, const Fixed& _fpVal2){
+	if (_fpVal1 < _fpVal2)
+		return _fpVal1;
+	else
+		return _fpVal2;
+}
+
+static Fixed&		max(Fixed& _fpVal1, Fixed& _fpVal2){
+	if (_fpVal1 > _fpVal2)
+		return _fpVal1;
+	else
+		return _fpVal2;
+}
+
+static const Fixed&	manx(const Fixed& _fpVal1, const Fixed& _fpVal2){
+	if (_fpVal1 > _fpVal2)
+		return _fpVal1;
+	else
+		return _fpVal2;
 }
 
 std::ostream&	operator<<(std::ostream& out, const Fixed& fixed){
