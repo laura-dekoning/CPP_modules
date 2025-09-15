@@ -6,7 +6,7 @@
 #    By: lade-kon <lade-kon@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/06/23 13:24:16 by lade-kon      #+#    #+#                  #
-#    Updated: 2025/09/01 17:26:20 by lade-kon      ########   odam.nl          #
+#    Updated: 2025/09/08 15:43:24 by lade-kon      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,8 @@ INCL		:=	incl
 INCLUDES	:=	-I $(INCL)
 
 SRC_DIR		:=	src
-SRC_FILES	:=	Fixed.cpp \
-				main.cpp
+SRC_FILES	:=	main.cpp \
+				Fixed.cpp
 
 SRC			:=	$(addprefix $(SRC_DIR)/, $(SRC_FILES))
 
