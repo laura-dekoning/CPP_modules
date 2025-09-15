@@ -6,14 +6,14 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/09/01 14:27:52 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/09/15 15:30:46 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/09/15 17:02:51 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
 #include <cmath>
-#include "Fixed.hpp"
+#include "../incl/Fixed.hpp"
 
 Fixed::Fixed() : _fixedPointValue(0){
 	std::cout << "Default constructor called" << std::endl;
@@ -65,64 +65,77 @@ float	Fixed::toFloat(void) const{
 }
 
 // Comparison Operators: > < >= <= == !=
-bool	operator>(const Fixed& other) const{
-	
+bool	Fixed::operator>(const Fixed& other) const{
+	return this->_fixedPointValue > other._fixedPointValue;
 }
 
-bool	operator<(const Fixed& other) const{
-	
+bool	Fixed::operator<(const Fixed& other) const{
+	return this->_fixedPointValue < other._fixedPointValue;
 }
 
-bool	operator>=(const Fixed& other) const{
-	
+bool	Fixed::operator>=(const Fixed& other) const{
+	return this->_fixedPointValue >= other._fixedPointValue;
 }
 
-bool	operator<=(const Fixed& other) const{
-	
+bool	Fixed::operator<=(const Fixed& other) const{
+	return this->_fixedPointValue <= other._fixedPointValue;
 }
 
-bool	operator==(const Fixed& other) const{
-	
+bool	Fixed::operator==(const Fixed& other) const{
+	return this->_fixedPointValue == other._fixedPointValue;
 }
 
-bool	operator!=(const Fixed& other) const{
-	
+bool	Fixed::operator!=(const Fixed& other) const{
+	return this->_fixedPointValue != other._fixedPointValue;
 }
 
 
 // Arithmetic Operators: + - * /
-Fixed	operator+(const Fixed& other) const{
-	
+Fixed	Fixed::operator+(const Fixed& other) const{
+	return (this->toFloat() + other.toFloat());
 }
 
-Fixed	operator-(const Fixed& other) const{
-	
+Fixed	Fixed::operator-(const Fixed& other) const{
+	return (this->toFloat() - other.toFloat());
 }
 
-Fixed	operator*(const Fixed& other) const{
-	
+Fixed	Fixed::operator*(const Fixed& other) const{
+	return (this->toFloat() * other.toFloat());
 }
 
-Fixed	operator/(const Fixed& other) const{
-	
+Fixed	Fixed::operator/(const Fixed& other) const{
+	return (this->toFloat() / other.toFloat());
 }
-
 
 // Increment/Decrement Operators: ++ -- (pre and post)
-Fixed	operator++(void){
-	
+Fixed&	Fixed::operator++(void){
+	_fixedPointValue++;
+
+	return (*this);
 }
 
-Fixed	operator++(int intVal){
-	
+Fixed	Fixed::operator++(int intVal){
+	Fixed	result(*this);
+	(void)	intVal;
+
+	_fixedPointValue++;
+
+	return result;
 }
 
-Fixed	operator--(void){
-	
+Fixed&	Fixed::operator--(void){
+	_fixedPointValue--;
+
+	return (*this);
 }
 
-Fixed	operator--(int intVal){
-	
+Fixed	Fixed::operator--(int intVal){
+	Fixed	result(*this);
+	(void)	intVal;
+
+	_fixedPointValue--;
+
+	return result;
 }
 
 

@@ -6,12 +6,12 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/09/01 14:24:52 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/09/15 14:45:27 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/09/15 16:20:18 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Fixed.hpp"
+#include "../incl/Fixed.hpp"
 
 int main(void){
 	Fixed		a;
