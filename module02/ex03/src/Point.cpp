@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/09/20 10:39:39 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/09/20 11:29:34 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/09/20 12:11:03 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ Point::~Point(){
 	std::cout << "Destructor called." << std::endl;
 }
 
+/* Since x and y are const, we cannot reassign them. */
 Point&	Point::operator=(const Point& value){
 	std::cout << "Copy assignment operator called" << std::endl;
 	(void) value;
@@ -43,7 +44,17 @@ float	Point::getY() const{
 	return this->_y.toFloat();
 }
 
+static float	area(Point const& a, Point const& b, Point const& c){
+
+}
 
 bool	bsp(Point const a, Point const b, Point const c, Point const point){
+	float	totalAreaABC = area(a, b, c);
+	float	areaPBC = area(point, b, c);
+	float	areaAPC = area(a, point, c);
+	float	areaABP = area(a, b, point);
 
+	totalAreaABC = areaPBC + areaAPC + areaABP;
+	if (totalAreaABC == 0)
+		return false;
 }
