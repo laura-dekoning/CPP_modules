@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/09/01 14:27:52 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/09/15 17:02:51 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/09/19 15:55:32 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,28 +140,28 @@ Fixed	Fixed::operator--(int intVal){
 
 
 // Min/Max Methods
-static Fixed&		min(Fixed& _fpVal1, Fixed& _fpVal2){
+Fixed&	Fixed::min(Fixed& _fpVal1, Fixed& _fpVal2){
 	if (_fpVal1 < _fpVal2)
 		return _fpVal1;
 	else
 		return _fpVal2;
 }
 
-static const Fixed&	min(const Fixed& _fpVal1, const Fixed& _fpVal2){
+const Fixed&	Fixed::min(const Fixed& _fpVal1, const Fixed& _fpVal2){
 	if (_fpVal1 < _fpVal2)
 		return _fpVal1;
 	else
 		return _fpVal2;
 }
 
-static Fixed&		max(Fixed& _fpVal1, Fixed& _fpVal2){
+Fixed&	Fixed::max(Fixed& _fpVal1, Fixed& _fpVal2){
 	if (_fpVal1 > _fpVal2)
 		return _fpVal1;
 	else
 		return _fpVal2;
 }
 
-static const Fixed&	manx(const Fixed& _fpVal1, const Fixed& _fpVal2){
+const Fixed&	Fixed::max(const Fixed& _fpVal1, const Fixed& _fpVal2){
 	if (_fpVal1 > _fpVal2)
 		return _fpVal1;
 	else

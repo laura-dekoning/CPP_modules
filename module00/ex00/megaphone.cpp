@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/01 16:38:16 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/06/01 18:21:09 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/09/08 13:02:26 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ int	main(int argc, char **argv)
 		std::cout << std::endl;
 	}
 	else
-		std::cout << "* LOUD AND UBEARABLE FEEDBACK NOISE *" << std::endl;
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 	return 0;
 }
