@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/09/20 10:38:51 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/09/20 11:25:48 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/09/20 11:29:38 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,6 @@ class Point {
 
 		float	getX() const;
 		float	getY() const;
-
-		void	setX(int const value);
-		void	setY(int const value);
 };
 
 /*	a,b,c: Vertices of triangle.

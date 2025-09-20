@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/09/20 10:39:39 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/09/20 11:25:09 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/09/20 11:29:34 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,6 @@ float	Point::getY() const{
 	return this->_y.toFloat();
 }
 
-/* SETTERS */
-void	Point::setX(int const value){
-	std::cout << "setX to " << value << std::endl;
-	_x = value;
-}
-
-void	Point::setY(int const value){
-	std::cout << "setY to " << value << std::endl;
-	_y = value;
-}
 
 bool	bsp(Point const a, Point const b, Point const c, Point const point){
 
