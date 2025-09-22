@@ -6,13 +6,14 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/28 15:09:04 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/08/04 13:10:55 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/09/22 17:43:25 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 int main() {
+	ClapTrap test;
 	ClapTrap clap("CL4P-TP");
 
 	std::cout << "\n--- Testing ClapTrap Functions ---\n" << std::endl;

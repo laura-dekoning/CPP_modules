@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/04 14:35:24 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/08/04 15:36:09 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/09/22 17:45:53 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 #include "ScavTrap.hpp"
 
 int main() {
+	ClapTrap	gerrit;
+	ScavTrap	wouter;
+
 	std::cout << "\n--- ScavTrap Test Begins ---\n" << std::endl;
 
 	// Create a ScavTrap instance

@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/28 15:09:11 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/08/04 12:06:54 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/09/22 17:38:50 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,21 @@
 
 class ClapTrap
 {
-private:
+protected:
 	std::string		_name;
 	unsigned int	_hitPoints;
 	unsigned int	_energyPoints;
 	unsigned int	_attackDamage;
 
 public:
-	ClapTrap(std::string name);
-	~ClapTrap();
+	// Constructors & Destructor
+	ClapTrap();
+	ClapTrap(std::string name);		// Paramaterized constructor
+	ClapTrap(const ClapTrap& copy);	// Copy constructor
+	~ClapTrap();					// Destructor
+
+	// Assignment
+	ClapTrap&	operator=(const ClapTrap& copy);	// Copy assignment constructor
 
 	void			attack(const std::string& target);
 	void			takeDamage(unsigned int amount);
