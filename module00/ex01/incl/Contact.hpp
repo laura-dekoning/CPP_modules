@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/01 19:33:16 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/06/20 17:18:13 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/09/22 14:52:15 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ class	Contact
 
 		void	displayFullInfo();
 		bool	checkPhoneNumber(std::string phoneNumber);
-
 };
 
 

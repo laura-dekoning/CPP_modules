@@ -6,7 +6,7 @@
 #    By: lade-kon <lade-kon@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/06/20 18:06:16 by lade-kon      #+#    #+#                  #
-#    Updated: 2025/07/28 12:50:10 by lade-kon      ########   odam.nl          #
+#    Updated: 2025/09/22 14:59:31 by lade-kon      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ $(OBJ_DIR) :
 	mkdir -p $(OBJ_DIR)
 	@echo "${GREEN}Completed${RESET}"
 
-$(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp |  $(OBJ_DIR)
+$(OBJ_DIR)/%.o : $(SRC_DIR)/%.cpp | $(OBJ_DIR)
 	 $(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
 
 clean :

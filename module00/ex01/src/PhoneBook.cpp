@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/01 19:27:16 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/06/20 17:57:37 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/09/22 16:22:34 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,4 +112,12 @@ void	PhoneBook::searchContact(){
 	}
 	i -= 1;
 	_contacts[i].displayFullInfo();
+}
+
+int PhoneBook::getIndex() const {
+	return _index;
+}
+
+int PhoneBook::getFull() const {
+	return _full;
 }

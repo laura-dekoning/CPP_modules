@@ -6,7 +6,7 @@
 #    By: lade-kon <lade-kon@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/06/01 18:24:16 by lade-kon      #+#    #+#                  #
-#    Updated: 2025/07/28 12:46:25 by lade-kon      ########   odam.nl          #
+#    Updated: 2025/09/22 15:01:50 by lade-kon      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,12 +41,14 @@ $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 	@echo "${GREEN}Completed${RESET}"
 
-$(OBJ_DIR)/%.o:$(SRC_DIR)/%.cpp
+$(OBJ_DIR)/%.o:$(SRC_DIR)/%.cpp | $(OBJ_DIR)
 	 $(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
 
 clean :
 	@ rm -rf $(OBJ)
 	@ echo "${CYAN}objects removed.${RESET}"
+	@ rm -rf $(OBJ_DIR)
+	@ echo "${BLUE}objects directory removed.${RESET}"
 
 fclean : clean
 	@ rm -f $(NAME)

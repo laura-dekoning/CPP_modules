@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/01 19:33:16 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/06/20 17:44:38 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/09/22 16:22:59 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,8 @@ class	PhoneBook
 		void		showContacts(Contact *_contacts);
 		std::string	formatString(const std::string string);
 
-		int getIndex() const {
-        return _index;
-    }
-		int getFull() const {
-        return _full;
-    }
+		int			getIndex() const;
+		int			getFull() const;
 };
 
 
