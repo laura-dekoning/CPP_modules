@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/28 15:09:11 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/09/22 17:38:50 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/02 18:52:07 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ protected:
 
 public:
 	// Constructors & Destructor
-	ClapTrap();
+	ClapTrap();						// Default constructor
 	ClapTrap(std::string name);		// Paramaterized constructor
 	ClapTrap(const ClapTrap& copy);	// Copy constructor
 	~ClapTrap();					// Destructor

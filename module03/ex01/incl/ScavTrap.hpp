@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/04 13:10:35 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/09/22 17:34:13 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/02 18:52:28 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class ScavTrap : public ClapTrap
 public:
 	ScavTrap();
 	ScavTrap(std::string name);
-	~ScavTrap();
 	ScavTrap(const ScavTrap& copy);	// Copy constructor
+	~ScavTrap();
 
 	// Assignment
 	ScavTrap&	operator=(const ScavTrap& copy);	// Copy assignment constructor
