@@ -6,17 +6,15 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/06/30 16:01:42 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/07/02 16:24:23 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/05 14:47:02 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name) : _weapon(NULL) {
-	_name = name;
-}
-
 HumanB::~HumanB(){}
+
+HumanB::HumanB(std::string name) : _name(name), _weapon(NULL) {}
 
 void	HumanB::setWeapon(Weapon &weapon){
 	_weapon = &weapon;

@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/14 15:54:15 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/07/15 16:35:40 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/05 15:08:26 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,20 +51,28 @@ void	Harl::complain(std::string level){
 	Level	levelEnum = getLevelEnum(level);
 	switch (levelEnum){
 		case DEBUG:
-			for (int i = 0; i <= levelEnum; i++)
+			for (int i = levelEnum; i < 4; i++) {
 				(this->*functions[i])();
+				std::cout << std::endl;
+			}
 			break;
 		case INFO:
-			for (int i = 0; i <= levelEnum; i++)
+			for (int i = levelEnum; i < 4; i++) {
 				(this->*functions[i])();
+				std::cout << std::endl;
+			}
 			break;
 		case WARNING:
-			for (int i = 0; i <= levelEnum; i++)
+			for (int i = levelEnum; i < 4; i++) {
 				(this->*functions[i])();
+				std::cout << std::endl;
+			}
 			break;
 		case ERROR:
-			for (int i = 0; i <= levelEnum; i++)
+			for (int i = levelEnum; i < 4; i++) {
 				(this->*functions[i])();
+				std::cout << std::endl;
+			}
 			break;
 		default:
 			std::cout << "[ Kevin has left a strongly worded review online ]" << std::endl;
