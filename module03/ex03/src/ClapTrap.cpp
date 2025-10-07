@@ -6,19 +6,35 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/28 15:09:08 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/08/11 16:34:46 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/07 12:27:05 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(std::string name)
+ClapTrap::ClapTrap() : _name("Default Clap"), _hitPoints(10), _energyPoints(10), _attackDamage(0){
+	std::cout << "ClapTrap " << _name << " has been constructed!" << std::endl;
+}
+
+ClapTrap::ClapTrap(const std::string& name)
 	: _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0){
 	std::cout << "ClapTrap " << _name << " has been constructed!" << std::endl;
 }
 
+ClapTrap::ClapTrap(const ClapTrap& copy) : _name(copy._name), _hitPoints(copy._hitPoints), _energyPoints(copy._energyPoints), _attackDamage(copy._attackDamage){}
+
 ClapTrap::~ClapTrap(){
 	std::cout << "ClapTrap " << _name << " has been deconstructed!" << std::endl;
+}
+
+ClapTrap&	ClapTrap::operator=(const ClapTrap& copy){
+	if (this != &copy){
+		_name = copy._name;
+		_hitPoints = copy._hitPoints;
+		_energyPoints = copy._energyPoints;
+		_attackDamage = copy._attackDamage;
+	}
+	return *this;
 }
 
 void ClapTrap::attack(const std::string& target){

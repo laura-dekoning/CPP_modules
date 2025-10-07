@@ -6,17 +6,17 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/28 15:09:08 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/09/22 17:43:52 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/07 12:39:08 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "../incl/ClapTrap.hpp"
 
 ClapTrap::ClapTrap() : _name("Default Mister"), _hitPoints(10), _energyPoints(10), _attackDamage(0){
 	std::cout << "ClapTrap " << _name << " has been constructed!" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name)
+ClapTrap::ClapTrap(const std::string& name)
 	: _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0){
 	std::cout << "ClapTrap " << _name << " has been constructed!" << std::endl;
 }

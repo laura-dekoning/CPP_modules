@@ -6,13 +6,14 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/28 15:09:11 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/02 18:52:07 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/07 17:31:34 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
 
+# pragma once
 # include <string>
 # include <iostream>
 
@@ -26,13 +27,13 @@ protected:
 
 public:
 	// Constructors & Destructor
-	ClapTrap();						// Default constructor
-	ClapTrap(std::string name);		// Paramaterized constructor
-	ClapTrap(const ClapTrap& copy);	// Copy constructor
-	~ClapTrap();					// Destructor
+	ClapTrap();							// Default constructor
+	ClapTrap(const std::string& name);	// Paramaterized constructor
+	ClapTrap(const ClapTrap& copy);		// Copy constructor
+	virtual ~ClapTrap();				// Destructor
 
 	// Assignment
-	ClapTrap&	operator=(const ClapTrap& copy);	// Copy assignment constructor
+	ClapTrap&		operator=(const ClapTrap& copy);	// Copy assignment constructor
 
 	void			attack(const std::string& target);
 	void			takeDamage(unsigned int amount);

@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/28 15:09:04 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/09/22 17:43:25 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/07 17:07:57 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main() {
 	ClapTrap test;
-	ClapTrap clap("CL4P-TP");
+	ClapTrap clap("CL4P-TR4P");
 
 	std::cout << "\n--- Testing ClapTrap Functions ---\n" << std::endl;
 
