@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/04 14:35:24 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/07 18:40:58 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/08 16:11:17 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 void printInfo(DiamondTrap &diamond) {
 	std::cout << "\n💎 DiamondTrap Info 💎\n";
-	std::cout << "Name: " << diamond.getName() << "\n";
+	diamond.whoAmI();
 	std::cout << "Hit Points: " << diamond.getHit() << "\n";
 	std::cout << "Energy Points: " << diamond.getEnergy() << "\n";
 	std::cout << "Attack Damage: " << diamond.getAttackDamage() << "\n";

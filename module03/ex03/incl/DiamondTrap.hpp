@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/11 16:21:42 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/07 18:42:28 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/08 13:55:36 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,15 @@ public:
 	DiamondTrap(const DiamondTrap& copy);	// Copy constructor
 	~DiamondTrap();							// Destructor
 
+	// using FragTrap::_hitPoints;
+	// using ScavTrap::_energyPoints;
+	// using FragTrap::_attackDamage;
+
 	// Assignment
 	DiamondTrap&	operator=(const DiamondTrap& copy);	// Copy assignment constructor
 
 	void	whoAmI();
 	using	ScavTrap::attack;
-}
+};
 
 #endif
