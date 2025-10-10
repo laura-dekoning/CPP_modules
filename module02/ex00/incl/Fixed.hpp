@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/09/01 14:26:13 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/09/15 16:59:32 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/10 12:04:55 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Fixed {
 	public:
 		Fixed();
 		Fixed(const Fixed& other);
-		Fixed&	operator=(Fixed& other);
+		Fixed&	operator=(const Fixed& other);
 		~Fixed();
 
 		int		getRawBits(void)const;

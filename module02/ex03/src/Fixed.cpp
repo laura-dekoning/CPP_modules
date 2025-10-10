@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/09/01 14:27:52 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/09/22 14:18:30 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/10 16:35:59 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Fixed::Fixed() : _fixedPointValue(0){
 }
 
 /* Is called when a new object is created from an existing one. */
-Fixed::Fixed(const Fixed& other) : _fixedPointValue(other._fixedPointValue) {}
+Fixed::Fixed(const Fixed& other) : _fixedPointValue(other.getRawBits()) {}
 
 Fixed::Fixed(const int constIntVar) : _fixedPointValue(constIntVar * (1 << _fractionalBits)){}
 
@@ -31,7 +31,7 @@ Fixed::~Fixed(){}
 /* Is called when an already existing object is assigned a VALUE of another existing object. Defines how objects behave when assignment operator (=) is used. Check for not trying to copy itself. Creating deep copy of other. */
 Fixed&	Fixed::operator=(const Fixed& other){
 	if (this != &other)
-		_fixedPointValue = other._fixedPointValue;
+		_fixedPointValue = other.getRawBits();;
 	return *this;
 }
 
@@ -50,7 +50,7 @@ int		Fixed::toInt(void) const{
 }
 
 float	Fixed::toFloat(void) const{
-	return _fixedPointValue / 256.0f;
+	return (float)_fixedPointValue / (1 << _fractionalBits);
 }
 
 // Comparison Operators: > < >= <= == !=

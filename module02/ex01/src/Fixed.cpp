@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/09/01 14:27:52 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/09/15 16:20:30 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/10 16:35:29 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Fixed::Fixed() : _fixedPointValue(0){
 }
 
 /* Is called when a new object is created from an existing one. */
-Fixed::Fixed(const Fixed& other) : _fixedPointValue(other._fixedPointValue) {
+Fixed::Fixed(const Fixed& other) : _fixedPointValue(other.getRawBits()) {
 	std::cout << "Copy constructor called" << std::endl;
 }
 
@@ -40,7 +40,7 @@ Fixed::~Fixed(){
 Fixed&	Fixed::operator=(const Fixed& other){
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
-		_fixedPointValue = other._fixedPointValue;
+		_fixedPointValue = other.getRawBits();
 	return *this;
 }
 
@@ -61,7 +61,7 @@ int		Fixed::toInt(void) const{
 }
 
 float	Fixed::toFloat(void) const{
-	return _fixedPointValue / 256.0f;
+	return (float)_fixedPointValue / (1 << _fractionalBits);
 }
 
 std::ostream&	operator<<(std::ostream& out, const Fixed& fixed){
