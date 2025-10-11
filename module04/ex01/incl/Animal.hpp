@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/08 16:47:03 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/11 11:39:34 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/11 13:52:56 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define ANIMAL_HPP
 
 #include <string>
+
 
 class Animal
 {

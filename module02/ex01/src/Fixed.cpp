@@ -6,14 +6,14 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/09/01 14:27:52 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/10 16:35:29 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/11 13:53:04 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
 #include <cmath>
-#include "../incl/Fixed.hpp"
+#include "Fixed.hpp"
 
 Fixed::Fixed() : _fixedPointValue(0){
 	std::cout << "Default constructor called" << std::endl;
