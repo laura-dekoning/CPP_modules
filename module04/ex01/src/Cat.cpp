@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/08 16:57:24 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/11 12:40:13 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/11 15:36:56 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ Cat::Cat(const Cat& copy) {
 }
 
 Cat::~Cat() {
+	delete _brain;
 	std::cout << "[Cat 😼] Destructor: The cat vanishes... probably to knock something else off a shelf." << std::endl;
 }
 

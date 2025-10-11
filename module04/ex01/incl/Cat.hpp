@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/08 16:52:56 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/11 12:25:59 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/11 15:37:46 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 class Cat : public Animal
 {
 	private:
-		Brain*	brain;
+		Brain*	_brain;
 	public:
 		Cat();
 		Cat(const Cat &copy);
