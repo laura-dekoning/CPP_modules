@@ -35,7 +35,8 @@ jobs:
           echo "CHANGED_DIRS=$CHANGED_DIRS" >> $GITHUB_ENV
 
       - name: Show changed directories
-        run: echo "Changed directories: $CHANGED_DIRS"
+        run: |
+          echo "Changed directories: $CHANGED_DIRS"
 
       - name: Push changed modules to their repos
         run: |
