@@ -38,9 +38,24 @@ jobs:
         run: |
           echo "Changed directories: $CHANGED_DIRS"
 
+      - name: Setup SSH key for repository access
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SYNC_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "GitHub Actions Bot"
+
       - name: Push changed modules to their repos
         run: |
           for dir in $CHANGED_DIRS; do
+
+            if [[ "$dir" == .* ]]; then
+              echo "⏭️ Skipping hidden directory: $dir"
+              continue
+            fi
+
             echo "🧩 Processing $dir ..."
 
             # Convert directory name (e.g. module00) to env var name (REPO_MODULE00_URL)
