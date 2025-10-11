@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/08 18:47:15 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/08 19:17:31 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/11 12:12:26 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 int	main(){
 	const Animal* meta = new Animal();
@@ -24,16 +26,19 @@ int	main(){
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
 	meta->makeSound();
-	i->makeSound(); //will output the cat sound!
 	j->makeSound();
-
-	// const WrongAnimal* animal = new WrongAnimal();
-	// const WrongAnimal* cat = new WrongCat();
-	// std::cout << cat->getType() << " " << std::endl;
-	// cat->makeSound();
-	// animal->makeSound();
+	i->makeSound(); //will output the cat sound!
 	delete meta;
 	delete i;
 	delete j;
+
+	std::cout << "\nTesting the wrong stuff now!\n" << std::endl;
+	const WrongAnimal* animal = new WrongAnimal();
+	const WrongAnimal* cat = new WrongCat();
+	std::cout << cat->getType() << " " << std::endl;
+	animal->makeSound();
+	cat->makeSound();
+	delete animal;
+	delete cat;
 	return 0;
 }

@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Dog.hpp                                            :+:    :+:            */
+/*   WrongCat.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/10/08 16:55:06 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/10 16:43:39 by lade-kon      ########   odam.nl         */
+/*   Created: 2025/10/08 16:52:56 by lade-kon      #+#    #+#                 */
+/*   Updated: 2025/10/11 12:00:54 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
 
 #include <string>
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-class Dog : public Animal
+class WrongCat : public WrongAnimal
 {
+	protected:
+		std::string	_type;
 	public:
-		Dog();
-		Dog(const Dog &copy);
-		~Dog();
+		WrongCat();
+		WrongCat(const WrongCat &copy);
+		~WrongCat();
 
-		Dog&	operator=(const Dog &copy);
+		WrongCat&	operator=(const WrongCat &copy);
 
-		void	makeSound() const override;
+		void		makeSound() const;
 };
+
 
 
 #endif

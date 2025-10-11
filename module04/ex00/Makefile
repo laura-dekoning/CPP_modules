@@ -6,7 +6,7 @@
 #    By: lade-kon <lade-kon@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/06/23 13:24:16 by lade-kon      #+#    #+#                  #
-#    Updated: 2025/10/08 19:12:11 by lade-kon      ########   odam.nl          #
+#    Updated: 2025/10/11 12:06:37 by lade-kon      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,8 @@ SRC_DIR		:=	src
 SRC_FILES	:=	Animal.cpp \
 				Cat.cpp \
 				Dog.cpp \
+				WrongAnimal.cpp \
+				WrongCat.cpp \
 				main.cpp
 
 SRC			:=	$(addprefix $(SRC_DIR)/, $(SRC_FILES))

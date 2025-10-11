@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/08 17:01:51 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/08 19:14:32 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/10 16:44:06 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,8 @@ Dog&	Dog::operator=(const Dog &copy){
 	if (this != &copy)
 		Animal::operator=(copy);
 	return *this;
+}
+
+void	Dog::makeSound() const{
+	std::cout << "Woef woef!" << std::endl;
 }

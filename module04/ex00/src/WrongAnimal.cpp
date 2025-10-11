@@ -1,41 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Animal.cpp                                         :+:    :+:            */
+/*   WrongAnimal.cpp                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/08 16:58:23 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/10 14:43:02 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/11 11:38:27 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-Animal::Animal() {
-	std::cout << "[Animal 🧬] Default constructor: A mysterious creature appears!" << std::endl;
+WrongAnimal::WrongAnimal() {
+	std::cout << "[WrongAnimal 🧬] Default constructor: A mysterious creature appears!" << std::endl;
 }
 
-Animal::Animal(const Animal& copy) : _type(copy._type) {
-	std::cout << "[Animal 🧬] Copy constructor: Cloning the creature... hope it’s stable this time." << std::endl;
+WrongAnimal::WrongAnimal(const WrongAnimal& copy) : _type(copy._type) {
+	std::cout << "[WrongAnimal 🧬] Copy constructor: Cloning the creature... hope it’s stable this time." << std::endl;
 }
 
-Animal::~Animal() {
-	std::cout << "[Animal 💀] Destructor: The creature fades into legend..." << std::endl;
+WrongAnimal::~WrongAnimal() {
+	std::cout << "[WrongAnimal 💀] Destructor: The creature fades into legend..." << std::endl;
 }
 
-Animal&	Animal::operator=(const Animal &copy){
+WrongAnimal&	WrongAnimal::operator=(const WrongAnimal &copy){
 	if (this != &copy)
 		this->_type = copy._type;
 	return *this;
 }
 
-std::string	Animal::getType() const{
+std::string	WrongAnimal::getType() const{
 	return _type;
 }
 
-void	Animal::makeSound() const{
+void	WrongAnimal::makeSound() const{
 	std::cout << "Anamalistic sound!" << std::endl;
 }

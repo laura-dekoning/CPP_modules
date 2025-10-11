@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Cat.cpp                                            :+:    :+:            */
+/*   WrongCat.cpp                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/08 16:57:24 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/10 14:44:09 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/11 12:01:50 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
-#include "Animal.hpp"
-#include "Cat.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
-Cat::Cat() {
-	Animal::_type = "Cat";
+WrongCat::WrongCat() {
+	WrongAnimal::_type = "Cat";
 	std::cout << "[Cat 🐱] Default constructor: A cat casually walks in, ignores you." << std::endl;
 }
 
-Cat::Cat(const Cat& copy) {
+WrongCat::WrongCat(const WrongCat& copy) {
 	*this = copy;
 	std::cout << "[Cat 🐱] Copy constructor: Another cat? Great. Double the attitude." << std::endl;
 }
 
-Cat::~Cat() {
+WrongCat::~WrongCat() {
 	std::cout << "[Cat 😼] Destructor: The cat vanishes... probably to knock something else off a shelf." << std::endl;
 }
 
-Cat&	Cat::operator=(const Cat &copy){
+WrongCat&	WrongCat::operator=(const WrongCat &copy){
 	if (this != &copy)
-		Animal::operator=(copy);
+		WrongAnimal::operator=(copy);
 	return *this;
 }
 
-void	Cat::makeSound() const{
+void	WrongCat::makeSound() const{
 	std::cout << "Miauw miauw!" << std::endl;
 }
