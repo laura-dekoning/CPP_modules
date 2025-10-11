@@ -1,0 +1,74 @@
+name: Split and Push to Local Git Server
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  split-and-push:
+    runs-on: ubuntu-latest
+
+    env:
+      # Map each module directory to its corresponding repo (set as secrets or env vars)
+      REPO_MODULE00_URL: ${{ secrets.REPO_MODULE00_URL }}
+      REPO_MODULE01_URL: ${{ secrets.REPO_MODULE01_URL }}
+      REPO_MODULE02_URL: ${{ secrets.REPO_MODULE02_URL }}
+      REPO_MODULE03_URL: ${{ secrets.REPO_MODULE03_URL }}
+      REPO_MODULE04_URL: ${{ secrets.REPO_MODULE04_URL }}
+      REPO_MODULE05_URL: ${{ secrets.REPO_MODULE05_URL }}
+      REPO_MODULE06_URL: ${{ secrets.REPO_MODULE06_URL }}
+      REPO_MODULE07_URL: ${{ secrets.REPO_MODULE07_URL }}
+      REPO_MODULE08_URL: ${{ secrets.REPO_MODULE08_URL }}
+      REPO_MODULE09_URL: ${{ secrets.REPO_MODULE09_URL }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # needed for git diff to work properly
+
+      - name: Detect changed top-level directories
+        id: detect
+        run: |
+          CHANGED_DIRS=$(git diff --name-only HEAD^ HEAD | cut -d'/' -f1 | sort -u | tr '\n' ' ')
+          echo "CHANGED_DIRS=$CHANGED_DIRS" >> $GITHUB_ENV
+
+      - name: Show changed directories
+        run: echo "Changed directories: $CHANGED_DIRS"
+
+      - name: Push changed modules to their repos
+        run: |
+          for dir in $CHANGED_DIRS; do
+            echo "🧩 Processing $dir ..."
+
+            # Convert directory name (e.g. module00) to env var name (REPO_MODULE00_URL)
+            VAR_NAME="REPO_$(echo "$dir" | tr '[:lower:]-' '[:upper:]_')_URL"
+            REPO_URL="${!VAR_NAME}"
+
+            if [ -z "$REPO_URL" ]; then
+              echo "⚠️ No repository URL defined for $dir (expected $VAR_NAME). Skipping."
+              continue
+            fi
+
+            echo "→ Target repository: $REPO_URL"
+
+            git clone --depth 1 "$REPO_URL" tmprepo
+            rsync -a --delete "$dir/" tmprepo/
+
+            cd tmprepo
+            if ! git diff --quiet; then
+              git add .
+              git commit -m "Sync from main repo commit $GITHUB_SHA"
+              git push origin main
+              echo "✅ Pushed $dir → $REPO_URL"
+            else
+              echo "ℹ️ No changes to push for $dir"
+            fi
+            cd ..
+
+            rm -rf tmprepo
+          done
+        env:
+          GITHUB_SHA: ${{ github.sha }}
+
