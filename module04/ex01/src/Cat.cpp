@@ -6,13 +6,12 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/08 16:57:24 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/11 15:36:56 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/15 14:11:18 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
-// #include "Animal.hpp"
 #include "Cat.hpp"
 
 Cat::Cat() {

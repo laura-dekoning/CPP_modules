@@ -6,10 +6,12 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/11 12:24:42 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/11 12:39:49 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/15 15:42:57 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string>
+#include <iostream>
 #include "Brain.hpp"
 
 Brain::Brain() {
@@ -25,12 +27,17 @@ Brain::~Brain() {
 	std::cout << "[Brain 💤] Destructor: The mind drifts away into dreams and data dust..." << std::endl;
 }
 
-Brain&	operator=(const Brain &copy) {
+Brain&	Brain::operator=(const Brain &copy) {
+	std::cout << "[Brain 🧠] Copy assignment operator: Going deep. Just another way of duplicating thoughts... now every thought should be copied." << std::endl;
 	if (this != &copy)
-		this->_ideas = copy._ideas;
+		std::copy(std::begin(copy._ideas), std::end(copy._ideas), std::begin(this->_ideas));
 	return *this;
 }
 
-std::string*	getIdeas() {
+const std::string*	Brain::getIdeas() const{
 	return _ideas;
+}
+
+void	Brain::setIdea(int i, const std::string idea){
+	this->_ideas[i] = idea;
 }

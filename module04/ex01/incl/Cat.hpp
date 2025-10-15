@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/08 16:52:56 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/11 15:37:46 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/15 14:13:43 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Cat : public Animal
 
 		Cat&	operator=(const Cat &copy);
 
-		void	makeSound() const;
+		void	makeSound() const override;
 };
 
 
