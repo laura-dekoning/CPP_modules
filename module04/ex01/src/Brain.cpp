@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/11 12:24:42 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/15 15:42:57 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/16 18:22:56 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Brain::Brain(const Brain& copy) {
 }
 
 Brain::~Brain() {
-	std::cout << "[Brain 💤] Destructor: The mind drifts away into dreams and data dust..." << std::endl;
+	std::cout << "[Brain 🧠] Destructor: The mind drifts away into dreams and data dust..." << std::endl;
 }
 
 Brain&	Brain::operator=(const Brain &copy) {

@@ -20,9 +20,9 @@
 #include "Test.hpp"
 
 int	main(){
-	// animalChecks();
-	// dogChecks();
-	// catChecks();
+	animalChecks();
+	dogChecks();
+	catChecks();
 	brainChecks();
 
 	return 0;

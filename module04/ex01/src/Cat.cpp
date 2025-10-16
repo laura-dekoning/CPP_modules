@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/08 16:57:24 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/16 15:57:11 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/16 18:50:03 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ Cat::Cat() {
 
 Cat::Cat(const Cat& copy) {
 	*this = copy;
+	_brain = new Brain(*copy._brain);
 	std::cout << "[Cat 🐱] Copy constructor: Another cat? Great. Double the attitude." << std::endl;
 }
 

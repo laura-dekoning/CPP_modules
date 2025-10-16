@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/16 14:56:15 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/16 15:02:23 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/16 18:40:39 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	brainChecks();
 void	catChecks();
 void	dogChecks();
 void	animalChecks();
+void	loadCatIdeas(Brain* catBrain);
+void	loadDogIdeas(Brain* dogBrain);
 
 
 #endif

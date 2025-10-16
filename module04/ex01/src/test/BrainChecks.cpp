@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/16 14:57:10 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/16 15:54:30 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/16 18:22:04 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ void	brainChecks(){
 	std::cout << "\nBrain ideas:\n";
 	const std::string* brainIdeas = brain->getIdeas();
 	for (int i = 0; i < 10; i++)
-	std::cout << "Idea " << i << ": " << brainIdeas[i] << "\n" << std::endl;
+	std::cout << "Idea " << i << ": " << brainIdeas[i] << std::endl;
+
+	std::cout << std::endl;
 
 	// ------ Shallow brain copy ----- //
 	Brain* shallowBrain = brain;

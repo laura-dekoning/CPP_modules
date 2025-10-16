@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/16 14:55:48 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/16 15:53:35 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/16 18:23:42 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,5 @@ void catChecks() {
 	cat1.getBrain()->setIdea(0, "I want fish!");
 	std::cout << "\nAfter modifying cat1’s brain:\n";
 	std::cout << "cat1[0]: " << cat1.getBrain()->getIdeas()[0] << std::endl;
-	std::cout << "cat2[0]: " << cat2.getBrain()->getIdeas()[0] << " (unchanged)\n";
+	std::cout << "cat2[0]: " << cat2.getBrain()->getIdeas()[0] << " (unchanged)\n" << std::endl;
 }

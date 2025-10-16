@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/08 17:01:51 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/16 15:57:02 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/16 18:51:59 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Dog::Dog(const Dog& copy) {
 
 Dog::~Dog() {
 	delete _brain;
-	std::cout << "[Dog 💤] Destructor: The good boy takes a well-deserved nap." << std::endl;
+	std::cout << "[Dog 🐶] Destructor: The good boy takes a well-deserved nap." << std::endl;
 }
 
 Dog&	Dog::operator=(const Dog &copy) {
