@@ -6,28 +6,30 @@
 #    By: lade-kon <lade-kon@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/06/23 13:24:16 by lade-kon      #+#    #+#                  #
-#    Updated: 2025/10/15 15:49:09 by lade-kon      ########   odam.nl          #
+#    Updated: 2025/10/16 15:38:39 by lade-kon      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		:=	Animal
 
 CC			:=	c++
-FLAGS		:=	-Wall -Wextra -Werror -std=c++11 -g -fsanitize=address #-Wshadow -Wno-shadow
+FLAGS		:=	-Wall -Wextra -Werror -std=c++11 -g -fsanitize=address
 
 INCL		:=	incl
 INCLUDES	:=	-I $(INCL)
 
 SRC_DIR		:=	src
+SRC_TEST	:=	test
 SRC_FILES	:=	Animal.cpp \
 				Cat.cpp \
 				Dog.cpp \
 				Brain.cpp \
 				main.cpp \
-				animalChecks.cpp \
-				catChecks.cpp \
-				dogChecks.cpp \
-				brainChecks.cpp \
+				$(addprefix $(SRC_TEST)/, \
+				AnimalChecks.cpp \
+				CatChecks.cpp \
+				DogChecks.cpp \
+				BrainChecks.cpp)
 
 SRC			:=	$(addprefix $(SRC_DIR)/, $(SRC_FILES))
 
@@ -45,6 +47,7 @@ $(NAME) : $(OBJ)
 $(OBJ_DIR):
 	@ echo "${PURPLE}Making object directories${RESET}"
 	mkdir -p $(OBJ_DIR)
+	mkdir -p $(OBJ_DIR)/$(SRC_TEST)
 	@ echo "${GREEN}Completed${RESET}"
 
 $(OBJ_DIR)/%.o:$(SRC_DIR)/%.cpp | $(OBJ_DIR)

@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Dog.hpp                                            :+:    :+:            */
+/*   Test.hpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/10/08 16:55:06 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/16 15:56:05 by lade-kon      ########   odam.nl         */
+/*   Created: 2025/10/16 14:56:15 by lade-kon      #+#    #+#                 */
+/*   Updated: 2025/10/16 15:02:23 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#ifndef TEST_HPP
+#define TEST_HPP
 
 #include <string>
+#include <iostream>
+#include <fstream>
 #include "Animal.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
 #include "Brain.hpp"
 
-class Dog : public Animal
-{
-	private:
-		Brain*	_brain;
-	public:
-		Dog();
-		Dog(const Dog &copy);
-		~Dog();
-
-		Dog&	operator=(const Dog &copy);
-
-		void	makeSound() const override;
-		Brain*	getBrain() const;
-};
+void	brainChecks();
+void	catChecks();
+void	dogChecks();
+void	animalChecks();
 
 
 #endif

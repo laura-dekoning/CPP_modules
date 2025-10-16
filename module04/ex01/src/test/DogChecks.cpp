@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Dog.hpp                                            :+:    :+:            */
+/*   DogChecks.cpp                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/10/08 16:55:06 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/16 15:56:05 by lade-kon      ########   odam.nl         */
+/*   Created: 2025/10/16 14:55:46 by lade-kon      #+#    #+#                 */
+/*   Updated: 2025/10/16 15:53:56 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#include "Test.hpp"
 
-#include <string>
-#include "Animal.hpp"
-#include "Brain.hpp"
-
-class Dog : public Animal
-{
-	private:
-		Brain*	_brain;
-	public:
-		Dog();
-		Dog(const Dog &copy);
-		~Dog();
-
-		Dog&	operator=(const Dog &copy);
-
-		void	makeSound() const override;
-		Brain*	getBrain() const;
-};
-
-
-#endif
+void	loadDogIdeas(Brain* dogBrain){
+	std::ifstream dogFile("DogBrain.txt");
+	if (!dogFile) {
+		std::cerr << "Failed to open DogBrain.txt\n";
+	} else {
+		std::string line;
+		int index = 0;
+		while (std::getline(dogFile, line) && index < 100) {
+			dogBrain->setIdea(index, line);
+			index++;
+		}
+		dogFile.close();
+	}
+}

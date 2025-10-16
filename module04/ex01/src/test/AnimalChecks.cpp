@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Dog.hpp                                            :+:    :+:            */
+/*   AnimalChecks.cpp                                   :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/10/08 16:55:06 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/16 15:56:05 by lade-kon      ########   odam.nl         */
+/*   Created: 2025/10/16 14:55:53 by lade-kon      #+#    #+#                 */
+/*   Updated: 2025/10/16 15:41:56 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
+#include "Test.hpp"
 
-#include <string>
-#include "Animal.hpp"
-#include "Brain.hpp"
-
-class Dog : public Animal
-{
-	private:
-		Brain*	_brain;
-	public:
-		Dog();
-		Dog(const Dog &copy);
-		~Dog();
-
-		Dog&	operator=(const Dog &copy);
-
-		void	makeSound() const override;
-		Brain*	getBrain() const;
-};
-
-
-#endif
+void	animalChecks(){
+	int		total = 10;
+	Animal*	animals[total];
+	for (int i = 0; i < total; i++){
+		if (i < total / 2)
+			animals[i] = new Cat();
+		else
+			animals[i] = new Dog();
+	}
+	for (int i = 0; i < total; i++){
+		std::cout << animals[i]->getType() << i << " : " << std::endl;
+		animals[i]->makeSound();
+	}
+	for (int i = 0; i< total; i++)
+		delete animals[i];
+}
