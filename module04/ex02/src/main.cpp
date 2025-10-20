@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   AnimalChecks.cpp                                   :+:    :+:            */
+/*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2025/10/16 14:55:53 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/20 13:32:23 by lade-kon      ########   odam.nl         */
+/*   Created: 2025/10/08 18:47:15 by lade-kon      #+#    #+#                 */
+/*   Updated: 2025/10/20 14:13:38 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Test.hpp"
+#include <string>
+#include <iostream>
+#include <fstream>
+#include "Animal.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
+#include "Brain.hpp"
 
 void	animalChecks(){
 	std::cout << "\033[1;92m\n---- Animal checks ----\n\033[0m";
 
-	int		total = 4;
-	Animal*	animals[total];
-	for (int i = 0; i < total; i++){
-		if (i < total / 2)
-			animals[i] = new Cat();
-		else
-			animals[i] = new Dog();
-	}
+	const int total = 4;
+	AAnimal* animals[total];
+
+	// --- Instantiate derived objects only ---
+	for (int i = 0; i < total / 2; ++i)
+		animals[i] = new Cat();
+	for (int i = total / 2; i < total; ++i)
+		animals[i] = new Dog();
 
 	std::cout << "\nTypes:\n";
 	for (int i = 0; i < total; i++){
@@ -41,9 +47,9 @@ void	animalChecks(){
 	// --- Load ideas --- //
 	for (int i = 0; i < total; i++) {
 		if (i < total / 2)
-			loadCatIdeas(static_cast<Cat*>(animals[i])->getBrain());
+			static_cast<Cat*>(animals[i])->getBrain()->setIdea(0, "Let's chase some mice!");
 		else
-			loadDogIdeas(static_cast<Dog*>(animals[i])->getBrain());
+			static_cast<Dog*>(animals[i])->getBrain()->setIdea(0, "Get the ball!");
 	}
 
 	// --- Print first idea and brain addresses --- //
@@ -91,4 +97,14 @@ void	animalChecks(){
 		delete animals[i];
 	delete catCopy;
 	delete dogCopy;
+}
+
+int	main(){
+	animalChecks();
+
+	// Cannot instantiate abstract base class anymore:
+	// AAnimal a;	//<-- ❌ compile-time error
+	// AAnimal* a = new AAnimal(); //<-- ❌ compile-time error
+
+	return 0;
 }

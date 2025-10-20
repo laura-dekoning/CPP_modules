@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/08 17:01:51 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/20 13:38:01 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/20 13:45:10 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 #include "Dog.hpp"
 
 Dog::Dog() {
-	Animal::_type = "Dog";
+	AAnimal::_type = "Dog";
 	_brain = new Brain;
 	std::cout << "[Dog 🐶] Default constructor: A happy doggo appears, tail wagging furiously!" << std::endl;
 }
 
-Dog::Dog(const Dog& copy) : Animal(copy), _brain(new Brain(*copy._brain)){
+Dog::Dog(const Dog& copy) : AAnimal(copy), _brain(new Brain(*copy._brain)){
 	std::cout << "[Dog 🐶] Copy constructor: Copying dog—wait, both are good boys!" << std::endl;
 }
 
@@ -31,7 +31,7 @@ Dog::~Dog() {
 
 Dog&	Dog::operator=(const Dog &copy) {
 	if (this != &copy){
-		Animal::operator=(copy);
+		AAnimal::operator=(copy);
 		delete _brain;
 		_brain = new Brain(*copy._brain);
 	}
