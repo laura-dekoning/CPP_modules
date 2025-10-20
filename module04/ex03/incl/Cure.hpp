@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/20 14:15:52 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/20 15:16:25 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/20 18:40:39 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,14 @@
 
 class Cure : public AMateria
 {
-	private:
-	
-	public:
-		Cure();
-		~Cure();
+public:
+	Cure();
+	Cure(const Cure &copy);
+	~Cure();
+
+	Cure& operator=(const Cure &copy);
+	AMateria*	clone() const override;
+	void		use(ICharacter& target) override;
 };
 
 #endif

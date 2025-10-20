@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/20 15:07:45 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/20 18:24:14 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/20 18:28:40 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ std::string const & Character::getName() const{
 }
 
 void Character::equip(AMateria* m){
-	
+	_inventory[i] = m;
 }
 
 void Character::unequip(int idx){

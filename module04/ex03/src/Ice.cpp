@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/20 18:02:43 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/20 18:17:47 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/20 18:34:19 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 
 Ice::Ice() {
+	AMateria::_type = "ice";
 	std::cout << "❄️ Ice materia forged — cold and sharp!" << std::endl;
 }
 
