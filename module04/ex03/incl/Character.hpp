@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/20 15:07:45 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/20 15:22:48 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/20 18:22:04 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,13 @@ class Character
 {
 private:
 	const std::string	_name;
+	AMateria*			_inventory[4];
 public:
+	Character(const std::string& _name);
+	Character(const Character &copy);
+	Character&	operator=(const Character &copy);
 	~Character() {};
+
 	std::string const & getName() const;
 	void equip(AMateria* m);
 	void unequip(int idx);

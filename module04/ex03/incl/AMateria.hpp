@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/20 14:15:52 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/20 15:33:34 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/20 18:15:02 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class AMateria
 		virtual ~AMateria();
 
 		std::string const& getType() const; //Returns the materia type
+		void setType() const;
 		virtual AMateria* clone() const = 0;
 		virtual void use(ICharacter& target);
 };
