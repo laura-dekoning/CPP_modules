@@ -6,13 +6,13 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/28 15:09:08 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/07 12:12:23 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/15 11:20:42 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : _name("Default Mister"), _hitPoints(10), _energyPoints(10), _attackDamage(0){
+ClapTrap::ClapTrap() : _name("Default Clap"), _hitPoints(10), _energyPoints(10), _attackDamage(0){
 	std::cout << "ClapTrap " << _name << " has been constructed!" << std::endl;
 }
 

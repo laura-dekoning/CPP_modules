@@ -6,7 +6,7 @@
 #    By: lade-kon <lade-kon@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/06/23 13:24:16 by lade-kon      #+#    #+#                  #
-#    Updated: 2025/08/05 18:23:46 by lade-kon      ########   odam.nl          #
+#    Updated: 2025/10/15 11:20:17 by lade-kon      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,8 +51,10 @@ clean :
 	@ echo "${CYAN}objects removed.${RESET}"
 
 fclean : clean
+	@ rm -rf $(OBJ_DIR)
+	@ echo "${GREEN}Object folder deleted.${RESET}"
 	@ rm -f $(NAME)
-	@ echo "${YELLOW}$(NAME) fcleaned!${RESET}"
+	@ echo "${YELLOW}$(NAME) is gone!${RESET}"
 
 re : fclean all
 

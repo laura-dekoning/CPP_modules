@@ -6,7 +6,7 @@
 #    By: lade-kon <lade-kon@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/06/23 13:24:16 by lade-kon      #+#    #+#                  #
-#    Updated: 2025/07/28 15:21:53 by lade-kon      ########   odam.nl          #
+#    Updated: 2025/10/15 11:19:57 by lade-kon      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,20 +36,22 @@ $(NAME) : $(OBJ)
 	@ echo "${GREEN}$(NAME) made!${RESET}"
 
 $(OBJ_DIR):
-	@echo "${PURPLE}Making object directories${RESET}"
+	@ echo "${PURPLE}Making object directories${RESET}"
 	mkdir -p $(OBJ_DIR)
-	@echo "${GREEN}Completed${RESET}"
+	@ echo "${GREEN}Completed${RESET}"
 
 $(OBJ_DIR)/%.o:$(SRC_DIR)/%.cpp | $(OBJ_DIR)
 	 $(CC) $(FLAGS) $(INCLUDES) -c $< -o $@
 
 clean :
 	@ rm -rf $(OBJ)
-	@ echo "${CYAN}objects removed.${RESET}"
+	@ echo "${CYAN}Objects removed.${RESET}"
 
 fclean : clean
+	@ rm -rf $(OBJ_DIR)
+	@ echo "${GREEN}Object folder deleted.${RESET}"
 	@ rm -f $(NAME)
-	@ echo "${YELLOW}$(NAME) fcleaned!${RESET}"
+	@ echo "${YELLOW}$(NAME) is gone!${RESET}"
 
 re : fclean all
 

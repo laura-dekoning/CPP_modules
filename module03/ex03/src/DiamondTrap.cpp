@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/11 16:20:39 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/08 16:32:29 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/15 13:57:19 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,21 @@
 DiamondTrap::DiamondTrap(){
 	this->_name = "Default Diamond";
 	ClapTrap::_name = this->_name + "_clap_name";
-	this->_hitPoints = FragTrap::_hitPoints;
+	FragTrap tempFrag;
+	this->_hitPoints = tempFrag.getHit();
 	this->_energyPoints = ScavTrap::_energyPoints;
-	this->_attackDamage = FragTrap::_attackDamage;
+	this->_attackDamage = tempFrag.getAttackDamage();
 	std::cout << "DiamondTrap " << this->_name << " is constructed!" << std::endl;
 }
 
+/* Omdat FragTrap::_attackDamage geen objectmember is, maar een instance member van een object dat nog niet bestaat maakt het probleem. Je kunt niet zomaar een instance member van een andere class lezen zonder een object. Dus er is een temp object gemaakt. */
 DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name){
-	_name = name;
+	this->_name = name;
 	ClapTrap::_name = this->_name + "_clap_name";
-	this->_hitPoints = FragTrap::_hitPoints;
+	FragTrap tempFrag;
+	this->_hitPoints = tempFrag.getHit();
 	this->_energyPoints = ScavTrap::_energyPoints;
-	this->_attackDamage = FragTrap::_attackDamage;
+	this->_attackDamage = tempFrag.getAttackDamage();
 	std::cout << "DiamondTrap " << this->_name << " is constructed" << std::endl;
 }
 

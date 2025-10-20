@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/08/04 14:57:04 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/07 17:04:45 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/15 13:41:33 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 FragTrap::FragTrap(){
 	_name = "Default Frag";
-	_hitPoints = 100;
-	_energyPoints = 100;
+	_hitPoints = 20;
+	_energyPoints = 20;
 	_attackDamage = 30;
 	std::cout << "FragTrap " << _name << " is constructed!" << std::endl;
 }

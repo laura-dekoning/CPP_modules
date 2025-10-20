@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/07/28 15:09:11 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/07 17:31:34 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/15 12:36:51 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ public:
 	// Assignment
 	ClapTrap&		operator=(const ClapTrap& copy);	// Copy assignment constructor
 
-	void			attack(const std::string& target);
+	virtual void	attack(const std::string& target);
 	void			takeDamage(unsigned int amount);
 	void			beRepaired(unsigned int amount);
 	std::string		getName();
