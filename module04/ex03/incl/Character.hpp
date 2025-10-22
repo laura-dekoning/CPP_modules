@@ -6,32 +6,38 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/20 15:07:45 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/20 18:22:04 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/22 11:00:44 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHARACTER_HPP
 #define CHARACTER_HPP
 
-#include <string>
 #include "AMateria.hpp"
 #include "ICharacter.hpp"
 
-class Character
+class Character : public ICharacter
 {
 private:
 	const std::string	_name;
 	AMateria*			_inventory[4];
+	static AMateria*	_onTheFloor[40];
+	static int			_dropped;
+
 public:
 	Character(const std::string& _name);
 	Character(const Character &copy);
 	Character&	operator=(const Character &copy);
 	~Character() {};
 
-	std::string const & getName() const;
-	void equip(AMateria* m);
-	void unequip(int idx);
-	void use(int idx, ICharacter& target);
+	// Methods
+	void				equip(AMateria* m);
+	void				unequip(int idx);
+	void				use(int idx, ICharacter& target);
+
+	// Getters
+	const std::string&	getName() const;
+	AMateria*			getMateria(int i);
 };
 
 #endif

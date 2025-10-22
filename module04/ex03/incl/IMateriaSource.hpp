@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/20 14:28:23 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/20 14:29:55 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/22 09:52:07 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #define IMATERIASOURCE_HPP
 
 #include <string>
-#include "AMateria.hpp"
 
+class AMateria; // forward declaration
 
 /**
  * • learnMateria(AMateria*)

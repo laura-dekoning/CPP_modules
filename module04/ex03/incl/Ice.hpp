@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/20 14:15:52 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/20 18:41:09 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/22 09:48:58 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@ class Ice : public AMateria
 public:
 	Ice();
 	Ice(const Ice &copy);
-	~Ice();
+	virtual ~Ice();
 
 	Ice& operator=(const Ice &copy);
+
 	AMateria*	clone() const override;
 	void		use(ICharacter& target) override;
 };

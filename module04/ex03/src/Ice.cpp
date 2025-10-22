@@ -6,27 +6,36 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/20 18:02:43 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/20 18:34:19 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/22 12:14:15 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include "AMateria.hpp"
 #include "Ice.hpp"
+#include "ICharacter.hpp"
+#include <iostream>
 
-
-Ice::Ice() {
-	AMateria::_type = "ice";
+Ice::Ice() : AMateria("ice"){
 	std::cout << "❄️ Ice materia forged — cold and sharp!" << std::endl;
 }
 
-Ice::~Ice() {
+Ice::Ice(const Ice& other) : AMateria(other) {
+	std::cout << "🧊 Ice materia duplicated!" << std::endl;
+}
+
+Ice& Ice::operator=(const Ice& other) {
+	if (this != &other) {
+		AMateria::operator=(other);
+		std::cout << "📝 Ice materia swapped in!" << std::endl;
+	}
+	return *this;
+}
+
+Ice::~Ice(){
 	std::cout << "🔥 Ice materia melts into nothingness." << std::endl;
 }
 
-
 AMateria* Ice::clone() const{
-	
+	return new Ice(*this);
 }
 
 void Ice::use(ICharacter& target){

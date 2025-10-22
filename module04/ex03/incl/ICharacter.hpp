@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/20 15:07:45 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/20 15:11:38 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/22 09:55:49 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 #define ICHARACTER_HPP
 
 #include <string>
-#include "AMateria.hpp"
+
+// Forward declaration, since only using AMateria* > no need to include full header. Avoiding circular include between ICharacter and AMateria.
+class AMateria;
 
 class ICharacter
 {
-private:
-	const std::string	_name;
 public:
 	virtual ~ICharacter() {}
 	virtual std::string const & getName() const = 0;

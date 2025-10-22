@@ -6,16 +6,15 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/20 14:15:52 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/20 18:36:13 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/22 10:26:36 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AMATERIA_HPP
 #define AMATERIA_HPP
 
-#include <string>
-#include <iostream>
 #include "ICharacter.hpp"
+#include <string>
 
 class AMateria
 {
