@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/20 18:05:53 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/22 10:37:11 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/22 12:48:24 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,23 @@ Cure::Cure() : AMateria("cure"){
 	std::cout << "💊 Cure materia created — healing vibes ready!" << std::endl;
 }
 
-Cure::~Cure() {
-	std::cout << "💫 Cure materia fades away into light." << std::endl;
+Cure::Cure(const Cure& copy) : AMateria(copy) {
+	std::cout << "💫 Cure materia copied." << std::endl;
 }
 
-AMateria* Ice::clone() const{
+Cure::~Cure() {
+	std::cout << "🌪 Cure materia disappeared!" << std::endl;
+}
+
+Cure& Cure::operator=(const Cure& copy) {
+	if (this != &copy) {
+		AMateria::operator=(copy);
+		std::cout << "📝 Cure materia swapped in!" << std::endl;
+	}
+	return *this;
+}
+
+AMateria* Cure::clone() const{
 	return new Cure(*this);
 }
 

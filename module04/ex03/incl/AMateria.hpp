@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/20 14:15:52 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/22 10:26:36 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/22 12:45:00 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class AMateria
 {
 	protected:
-		const std::string _type;
+		std::string _type;
 	public:
 		AMateria(std::string const& type);
 		AMateria(const AMateria &copy);

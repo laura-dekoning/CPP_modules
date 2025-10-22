@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/20 14:17:08 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/22 12:10:01 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/22 12:47:12 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ AMateria::~AMateria(){
 
 AMateria& AMateria::operator=(const AMateria &copy){
 	if (this != &copy) {
-		_type = copy._type;
+		_type = copy.getType();
 		std::cout << "📝 AMateria assigned! New type: '" << _type << "'" << std::endl;
 	}
 	return *this;
@@ -38,6 +38,6 @@ std::string const& AMateria::getType() const{
 }
 
 void AMateria::use(ICharacter& target){
-	void(target);
+	(void)target;
 	std::cout << "* uses mysterious materia on " << target.getName() << " *" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/20 15:07:45 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/22 12:12:25 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/22 12:50:50 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,40 +22,34 @@ Character::Character(std::string const& name) : _name(name){
 	std::cout << "🧙 Character '" << _name << "' enters the world!" << std::endl;
 }
 
-
 Character::Character(const Character &copy) : _name(copy.getName()){
 	for (int i = 0; i < 4; i++){
-		if (copy._inventory[i] != NULL)
+		if (copy._inventory[i])
 			_inventory[i] = copy._inventory[i]->clone();
+		else
+			_inventory[i] = nullptr;
 	}
 	for (int i = 0; i < 40; i++){
-		if (copy._onTheFloor[i] != NULL)
+		if (copy._onTheFloor[i])
 			_onTheFloor[i] = copy._onTheFloor[i]->clone();
+		else
+			_onTheFloor[i] = nullptr;
 	}
+	_dropped = copy._dropped;
 	std::cout << "🔮 Character '" << _name << "' cloned by magic!" << std::endl;
 }
 
 Character::~Character(){
-	for (int i = 0; i < 4; i++){
-		if (_inventory[i] != NULL)
-			delete _inventory[i];
-	}
-	for (int i = 0; i < 40; i++){
-		if (_onTheFloor[i] != NULL)
-			delete _onTheFloor[i];
-	}
+	clearMaterias();
 	std::cout << "⚰️ Character '" << _name << "' has fallen..." << std::endl;
 }
 
 Character&	Character::operator=(const Character &copy){
 	if (this != &copy){
-		for (int i = 0; i < 4; i++){
-			if (_inventory[i] != NULL)
-				delete _inventory[i];
-		}
+		clearMaterias();
 		_name = copy.getName();
 		for (int i = 0; i < 4; i++){
-			if (copy._inventory[i] != NULL)
+			if (copy._inventory[i])
 				_inventory[i] = copy._inventory[i]->clone();
 		}
 		std::cout << "📜 Character '" << _name << "' updated from another!" << std::endl;
@@ -63,10 +57,36 @@ Character&	Character::operator=(const Character &copy){
 	return *this;
 }
 
+void	Character::clearMaterias() {
+	for (int i = 0; i < 4; i++) {
+		if (_inventory[i]) {
+			delete _inventory[i];
+			_inventory[i] = nullptr;
+		}
+	}
+
+	for (int i = 0; i < 40; i++) {
+		if (_onTheFloor[i]) {
+			delete _onTheFloor[i];
+			_onTheFloor[i] = nullptr;
+		}
+	}
+	_dropped = 0;
+}
+
+// Getters
+
 std::string const & Character::getName() const{
 	return _name;
 }
 
+AMateria* Character::getMateria(int idx) const {
+	if (idx < 0 || idx >= 4)
+		return nullptr;
+	return _inventory[idx];
+}
+
+// Methods
 void Character::equip(AMateria* m){
 	if (m == nullptr){
 		std::cout << "⚠️ Nothing to equip!" << std::endl;

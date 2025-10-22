@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/20 15:07:45 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/22 11:00:44 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/22 12:49:55 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@
 class Character : public ICharacter
 {
 private:
-	const std::string	_name;
+	std::string			_name;
 	AMateria*			_inventory[4];
 	static AMateria*	_onTheFloor[40];
 	static int			_dropped;
+
+	void	clearMaterias();
 
 public:
 	Character(const std::string& _name);
@@ -37,7 +39,7 @@ public:
 
 	// Getters
 	const std::string&	getName() const;
-	AMateria*			getMateria(int i);
+	AMateria*			getMateria(int i) const;
 };
 
 #endif

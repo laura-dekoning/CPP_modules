@@ -6,10 +6,74 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/20 14:26:23 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/20 14:27:03 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/22 12:41:05 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
-#include <iostream>
 #include "AMateria.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
+#include "ICharacter.hpp"
+#include "Character.hpp"
+#include "IMateriaSource.hpp"
+#include "MateriaSource.hpp"
+
+int main() {
+	std::cout << "🌟 Welcome to the Materia Arena! 🌟\n" << std::endl;
+
+	// Create a Materia source and teach it some spells
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+
+	// Create a character
+	ICharacter* hero = new Character("Arthas");
+		
+	// Create Materias from the source and equip them
+	AMateria* ice = src->createMateria("ice");
+	AMateria* cure = src->createMateria("cure");
+	hero->equip(ice);
+	hero->equip(cure);
+
+	// Create an enemy
+	ICharacter* enemy = new Character("Goblin");
+
+	std::cout << "\n⚔️ Battle begins!" << std::endl;
+	hero->use(0, *enemy);  // Ice
+	hero->use(1, *enemy);  // Cure
+
+	// Test polymorphism
+	std::cout << "\n🔄 Polymorphism test: using base pointers" << std::endl;
+	ICharacter* polyHero = hero;
+	polyHero->use(0, *enemy);
+
+	// Test deep copy
+	std::cout << "\n✨ Cloning hero into heroClone" << std::endl;
+	Character* heroClone = new Character(*(Character*)hero); // cast to concrete type for copy constructor
+	heroClone->use(0, *enemy);
+	heroClone->use(1, *enemy);
+
+	// Unequip a Materia from clone and show original still works
+	std::cout << "\n🛡️ HeroClone unequips slot 0" << std::endl;
+	heroClone->unequip(0);
+	std::cout << "Original hero still uses ice:" << std::endl;
+	hero->use(0, *enemy);
+
+	// Fun: equip multiple Materias
+	std::cout << "\n🎉 Equipping more Materias" << std::endl;
+	AMateria* ice2 = src->createMateria("ice");
+	AMateria* cure2 = src->createMateria("cure");
+	hero->equip(ice2);
+	hero->equip(cure2);
+	hero->use(2, *enemy);
+	hero->use(3, *enemy);
+
+	// Cleanup
+	delete heroClone;
+	delete enemy;
+	delete hero;
+	delete src;
+
+	std::cout << "\n🏁 Materia Arena closed!" << std::endl;
+	return 0;
+}

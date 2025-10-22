@@ -6,7 +6,7 @@
 #    By: lade-kon <lade-kon@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/06/23 13:24:16 by lade-kon      #+#    #+#                  #
-#    Updated: 2025/10/20 14:15:38 by lade-kon      ########   odam.nl          #
+#    Updated: 2025/10/22 12:39:20 by lade-kon      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,10 @@ INCLUDES	:=	-I $(INCL)
 
 SRC_DIR		:=	src
 SRC_FILES	:=	AMateria.cpp \
+				Cure.cpp \
+				Ice.cpp \
+				Character.cpp \
+				MateriaSource.cpp \
 				main.cpp
 
 SRC			:=	$(addprefix $(SRC_DIR)/, $(SRC_FILES))
