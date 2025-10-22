@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/20 14:26:23 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/22 12:41:05 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/22 17:41:00 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,24 @@
 #include "MateriaSource.hpp"
 
 int main() {
+	std::cout << "Subject test\n" << std::endl;
+
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	ICharacter* me = new Character("me");
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	ICharacter* bob = new Character("bob");
+	me->use(0, *bob);
+	me->use(1, *bob);
+	delete bob;
+	delete me;
+	delete src;
+
 	std::cout << "🌟 Welcome to the Materia Arena! 🌟\n" << std::endl;
 
 	// Create a Materia source and teach it some spells
