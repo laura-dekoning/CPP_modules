@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/20 18:02:43 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/22 12:21:04 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/24 10:39:12 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <iostream>
 
 Ice::Ice() : AMateria("ice"){
-	std::cout << "❄️ Ice materia forged — cold and sharp!" << std::endl;
+	std::cout << "❄️  Ice materia forged — cold and sharp!" << std::endl;
 }
 
 Ice::Ice(const Ice& copy) : AMateria(copy) {
@@ -39,5 +39,7 @@ AMateria* Ice::clone() const{
 }
 
 void Ice::use(ICharacter& target){
+	std::cout << "------------------------------------------" << std::endl;
 	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
+	std::cout << "------------------------------------------" << std::endl;
 }

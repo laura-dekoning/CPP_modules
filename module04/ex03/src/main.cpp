@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/20 14:26:23 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/22 17:41:00 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/24 10:44:24 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,27 @@
 #include "Character.hpp"
 #include "IMateriaSource.hpp"
 #include "MateriaSource.hpp"
+#include <iostream>
 
 int main() {
 	std::cout << "Subject test\n" << std::endl;
 
-	IMateriaSource* src = new MateriaSource();
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
+	IMateriaSource* matSrc = new MateriaSource();
+	matSrc->learnMateria(new Ice());
+	matSrc->learnMateria(new Cure());
 	ICharacter* me = new Character("me");
 	AMateria* tmp;
-	tmp = src->createMateria("ice");
+	tmp = matSrc->createMateria("ice");
 	me->equip(tmp);
-	tmp = src->createMateria("cure");
+	tmp = matSrc->createMateria("cure");
 	me->equip(tmp);
 	ICharacter* bob = new Character("bob");
 	me->use(0, *bob);
 	me->use(1, *bob);
+	delete tmp;
 	delete bob;
 	delete me;
-	delete src;
+	delete matSrc;
 
 	std::cout << "🌟 Welcome to the Materia Arena! 🌟\n" << std::endl;
 

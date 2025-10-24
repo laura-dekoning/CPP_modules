@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/20 18:05:53 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/22 12:48:24 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/24 10:39:22 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Cure::Cure(const Cure& copy) : AMateria(copy) {
 }
 
 Cure::~Cure() {
-	std::cout << "🌪 Cure materia disappeared!" << std::endl;
+	std::cout << "🌪  Cure materia disappeared!" << std::endl;
 }
 
 Cure& Cure::operator=(const Cure& copy) {
@@ -39,5 +39,7 @@ AMateria* Cure::clone() const{
 }
 
 void Cure::use(ICharacter& target){
+	std::cout << "------------------------------------------" << std::endl;
 	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+	std::cout << "------------------------------------------" << std::endl;
 }

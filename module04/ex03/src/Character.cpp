@@ -6,12 +6,15 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/20 15:07:45 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/22 17:32:46 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/24 09:04:32 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 #include <iostream>
+
+AMateria* Character::_onTheFloor[40] = {nullptr};
+int Character::_dropped = 0;
 
 Character::Character(std::string const& name) : _name(name){
 	for (int idx = 0; idx < 4; idx++)
@@ -41,7 +44,7 @@ Character::Character(const Character &copy) : _name(copy.getName()){
 
 Character::~Character(){
 	clearMaterias();
-	std::cout << "⚰️ Character '" << _name << "' has fallen..." << std::endl;
+	std::cout << "⚰️  Character '" << _name << "' has fallen..." << std::endl;
 }
 
 Character&	Character::operator=(const Character &copy){
