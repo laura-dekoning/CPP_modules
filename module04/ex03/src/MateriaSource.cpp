@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/20 14:28:23 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/24 10:37:20 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/24 15:59:01 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void MateriaSource::learnMateria(AMateria* m){
 		if (_templates[idx] == nullptr){
 			_templates[idx] = m->clone();
 			std::cout << "📘 Learned new Materia of type " << m->getType() << std::endl;
+			delete m;
 			return ;
 		}
 	}
@@ -75,8 +76,7 @@ AMateria* MateriaSource::createMateria(std::string const& type){
 			std::cout << "🔮 Created new Materia of type " << _templates[idx]->getType() << std::endl;
 			return _templates[idx]->clone();
 		}
-		else
-			std::cout << "❓ Unknown Materia type '" << type << "'!" << std::endl;
 	}
+	std::cout << "❓ Unknown Materia type '" << type << "'!" << std::endl;
 	return nullptr;
 }

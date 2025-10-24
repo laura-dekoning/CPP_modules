@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/20 14:26:23 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/24 10:44:24 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/24 17:14:53 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include <iostream>
 
 int main() {
-	std::cout << "Subject test\n" << std::endl;
+	std::cout << "\n----- Subject test -----\n" << std::endl;
 
 	IMateriaSource* matSrc = new MateriaSource();
 	matSrc->learnMateria(new Ice());
@@ -34,12 +34,11 @@ int main() {
 	ICharacter* bob = new Character("bob");
 	me->use(0, *bob);
 	me->use(1, *bob);
-	delete tmp;
 	delete bob;
 	delete me;
 	delete matSrc;
 
-	std::cout << "🌟 Welcome to the Materia Arena! 🌟\n" << std::endl;
+	std::cout << "\n🌟 Welcome to the Materia Arena! 🌟\n" << std::endl;
 
 	// Create a Materia source and teach it some spells
 	IMateriaSource* src = new MateriaSource();
@@ -54,11 +53,13 @@ int main() {
 	AMateria* cure = src->createMateria("cure");
 	hero->equip(ice);
 	hero->equip(cure);
+	hero->equip(ice);
+	hero->equip(cure);
 
 	// Create an enemy
 	ICharacter* enemy = new Character("Goblin");
 
-	std::cout << "\n⚔️ Battle begins!" << std::endl;
+	std::cout << "\n⚔️  Battle begins!" << std::endl;
 	hero->use(0, *enemy);  // Ice
 	hero->use(1, *enemy);  // Cure
 
@@ -69,7 +70,7 @@ int main() {
 
 	// Test deep copy
 	std::cout << "\n✨ Cloning hero into heroClone" << std::endl;
-	Character* heroClone = new Character(*(Character*)hero); // cast to concrete type for copy constructor
+	Character* heroClone = new Character(hero->getName() + "_copy"); // cast to concrete type for copy constructor
 	heroClone->use(0, *enemy);
 	heroClone->use(1, *enemy);
 

@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/20 15:07:45 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/24 09:04:32 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/24 17:13:29 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,9 +122,15 @@ void Character::equip(AMateria* m){
 		return ;
 	}
 	for (int idx = 0; idx < 4; idx++){
+		if (this->_inventory[idx] == m){
+			std::cout << "⚠️  Materia " << m->getType() << " is already in slot " << idx << std::endl;
+			return ;
+		}
+	}
+	for (int idx = 0; idx < 4; idx++){
 		if (this->_inventory[idx] == NULL){
 			_inventory[idx] = m;
-			std::cout << "✨ Got it! " << m->getType() << " is now in slot " << idx << std::endl;
+			std::cout << "✨ Got it! 🧙 " << this->getName() << " equipped " << m->getType() << " in slot " << idx << std::endl;
 			return ;
 		}
 	}
