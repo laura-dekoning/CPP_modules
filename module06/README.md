@@ -1,50 +1,69 @@
-Welcome to the 80s and their unbelievable technology! Write a program that behaves
-like a crappy awesome phonebook software.
+CPP Module 06 - Casts
+Overview
 
-You have to implement two classes:
+This module introduces the four C++ casting operators and their specific use cases:
 
-• PhoneBook
-	◦ It has an array of contacts.
-	◦ It can store a maximum of 8 contacts. If the user tries to add a 9th contact,
-	replace the oldest one by the new one.
-	◦ Please note that dynamic allocation is forbidden.
+static_cast
+dynamic_cast
+const_cast
+reinterpret_cast
 
-• Contact
-	◦ Stands for a phonebook contact.
+Unlike C-style casts, these casts make conversions explicit and safer.
 
-In your code, the phonebook must be instantiated as an instance of the PhoneBook
-class. Same thing for the contacts. Each one of them must be instantiated as an instance
-of the Contact class. You’re free to design the classes as you like but keep in mind that
-anything that will always be used inside a class is private, and that anything that can be
-used outside a class is public.
+Cast Types
+static_cast
 
-At program start-up, the phonebook is empty and the user is prompted to enter one
-of three commands. The program only accepts ADD, SEARCH and EXIT.
+Used for standard type conversions that can be checked at compile time.
 
-• ADD: save a new contact
-	◦ If the user enters this command, they are prompted to input the information
-	of the new contact one field at a time. Once all the fields have been completed,
-	add the contact to the phonebook.
-	◦ The contact fields are: first name, last name, nickname, phone number, and
-	darkest secret. A saved contact can’t have empty fields.
+int i = 42;
+double d = static_cast<double>(i);
+dynamic_cast
 
-• SEARCH: display a specific contact
-	◦ Display the saved contacts as a list of 4 columns: index, first name, last
-	name and nickname.
-	◦ Each column must be 10 characters wide. A pipe character (’|’) separates
-	them. The text must be right-aligned. If the text is longer than the column,
-	it must be truncated and the last displayable character must be replaced by a
-	dot (’.’).
-	◦ Then, prompt the user again for the index of the entry to display. If the index
-	is out of range or wrong, define a relevant behavior. Otherwise, display the
-	contact information, one field per line.
+Used with polymorphic inheritance to safely convert pointers or references between related classes.
 
-• EXIT
-	◦ The program quits and the contacts are lost forever!
+Base* base = new Derived();
+Derived* derived = dynamic_cast<Derived*>(base);
 
-• Any other input is ignored.
+Returns NULL for pointers if the cast fails and throws an exception for references.
 
-Once a command has been correctly executed, the program waits for another one. It
-stops when the user inputs EXIT.
+const_cast
 
-Give a relevant name to your executable.
+Used to add or remove const qualifiers.
+
+const int x = 42;
+int* ptr = const_cast<int*>(&x);
+reinterpret_cast
+
+Used for low-level conversions between unrelated pointer or integer types.
+
+Data* data = new Data;
+uintptr_t raw = reinterpret_cast<uintptr_t>(data);
+
+Use with care, as it does not perform safety checks.
+
+Exercises
+ex00 - Scalar Converter
+
+Convert between scalar types (char, int, float, double).
+
+Expected cast: static_cast.
+
+ex01 - Serializer
+
+Convert a pointer to an integer and back.
+
+Expected cast: reinterpret_cast.
+
+ex02 - Identify Real Type
+
+Determine the actual type of an object through a base-class pointer or reference.
+
+Expected cast: dynamic_cast.
+
+Key Point
+
+Each exercise is designed to demonstrate a specific cast. During evaluation, be prepared to explain:
+
+Why the chosen cast is appropriate.
+Why the other casts are not suitable.
+The differences between the four casting operators.
