@@ -11,18 +11,20 @@ private:
 	const std::string	_name;
 	int					_grade;
 public:
-	Bureaucrat(std::string name, int grade);
+	Bureaucrat();
+	Bureaucrat(const std::string &name, int grade);
+	Bureaucrat(const Bureaucrat &other);
+	Bureaucrat& operator=(const Bureaucrat &other);
 	~Bureaucrat();
 
 	const std::string&	getName() const;
 	int					getGrade() const;
 
-	void				incrementGrade(int points);
-	void				decrementGrade(int points);
+	void	incrementGrade(int points);
+	void	decrementGrade(int points);
 
 	//helpers
-	void				tryIncrement(int points = 1);
-	void				tryDecrement(int points = 1);
+	void	validateGrade(int grade);
 
 	//exceptions
 	class GradeTooHighException : public std::exception

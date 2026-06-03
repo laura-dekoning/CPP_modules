@@ -1,12 +1,24 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade){
-	if (grade < 1)
-		throw GradeTooHighException();
-	if (grade > 150)
-		throw GradeTooLowException();
-	std::cout << "🗂️  Bureaucrat '" << name << "' enters the office, ready to stamp some forms with grade: " << grade << std::endl;
+Bureaucrat::Bureaucrat() : _name("Default"), _grade(100){
+	std::cout << "🗂️  Bureaucrat '" << _name << "' enters the office, ready to stamp some forms with grade: " << _grade << std::endl;
+}
+
+Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name){
+	validateGrade(grade);
+	_grade = grade;
+	std::cout << "🗂️  Bureaucrat '" << _name << "' enters the office, ready to stamp some forms with grade: " << _grade << std::endl;
+}
+
+Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name), _grade(other._grade){
+	std::cout << "Bureaucrat is copied!" << std::endl;
+}
+
+Bureaucrat&	Bureaucrat::operator=(const Bureaucrat &other){
+	if (this != &other)
+		_grade = other._grade;
+	return (*this);
 }
 
 Bureaucrat::~Bureaucrat(){
@@ -23,41 +35,22 @@ int	Bureaucrat::getGrade() const{
 }
 
 void	Bureaucrat::incrementGrade(int points){
-	if ((_grade - points) < 1)
-		throw Bureaucrat::GradeTooHighException();
+	validateGrade(_grade - points);
 	_grade -= points;
-	std::cout << *this << std::endl;
+	std::cout << "Grade incremented with " << points << " points\n" << *this << std::endl;
 }
 
 void	Bureaucrat::decrementGrade(int points){
-	if ((_grade + points) > 150)
-		throw Bureaucrat::GradeTooLowException();
+	validateGrade(_grade + points);
 	_grade += points;
-	std::cout << *this << std::endl;
+	std::cout << "Grade decremented with " << points << " points\n" << *this << std::endl;
 }
 
-void	Bureaucrat::tryIncrement(int points){
-	try{
-		this->incrementGrade(points);
-	}
-	catch(const Bureaucrat::GradeTooHighException &e){
-		std::cerr << "Error: " << e.what() << std::endl;
-	}
-	catch(const Bureaucrat::GradeTooLowException &e){
-		std::cerr << "Error: " << e.what() << std::endl;
-	}
-}
-
-void	Bureaucrat::tryDecrement(int points){
-	try{
-		this->decrementGrade(points);
-	}
-	catch(const Bureaucrat::GradeTooHighException &e){
-		std::cerr << "Error: " << e.what() << std::endl;
-	}
-	catch(const Bureaucrat::GradeTooLowException &e){
-		std::cerr << "Error: " << e.what() << std::endl;
-	}
+void	Bureaucrat::validateGrade(int grade){
+	if (grade < 1)
+		throw GradeTooHighException();
+	if (grade > 150)
+		throw GradeTooLowException();
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw(){

@@ -5,7 +5,7 @@
 #include <exception>
 #include <ostream>
 
-#include "Bureaucrat.hpp"
+class Bureaucrat;
 
 class Form
 {
@@ -15,7 +15,9 @@ private:
 	const int			_signGrade;
 	const int			_executeGrade;
 public:
-	Form(/* args */);
+	Form();
+	Form(const std::string &name, int signGrade, int execGrade);
+	Form
 	~Form();
 
 	void	beSigned(const Bureaucrat &b);
