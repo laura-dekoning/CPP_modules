@@ -32,7 +32,7 @@ void ScalarConverter::convert(const std::string input){
 
 bool	ScalarConverter::qualifiesAsChar(const std::string& input){
 	if (input.length() == 1)
-		return (!std::isdigit(input[0]));
+		return (!std::isdigit(static_cast<unsigned char>(input[0])));
 	else if (input.length() == 3 && input[0] == '\'' && input[2] == '\'')
 		return (true);
 
@@ -54,11 +54,27 @@ bool	ScalarConverter::qualifiesAsInt(const std::string& input){
 bool	ScalarConverter::qualifiesAsFloat(const std::string& input){
 	if (input == "nanf" || input == "+inff" || input == "-inff")
 		return (true);
-	else if (input.endswith("f") && input.contains("."))
+
+	if (input[input.length() - 1] != 'f')
+		return (false);
+
+	char*	end;
+
+	std::strtof(input.c_str(), &end);
+
+	return (*end == 'f' && *(end + 1) == '\0');
 }
 
 bool	ScalarConverter::qualifiesAsDouble(const std::string& input){
-	
+	if (input == "nan" || input == "+inf" || input == "-inf")
+		return (true);
+	if (input.find('.') == std::string::npos)
+		return (false);
+
+	char*	end;
+
+	std::strtod(input.c_str(), &end);
+	return (*end == '\0');
 }
 
 
