@@ -21,10 +21,10 @@ class ScalarConverter
 		bool	qualifiesAsFloat(const std::string& input);
 		bool	qualifiesAsDouble(const std::string& input);
 	
-		const std::string&	convertFromChar(const std::string& input);
-		const std::string&	convertFromInt(const std::string& input);
-		const std::string&	convertFromFloat(const std::string& input);
-		const std::string&	convertFromDouble(const std::string& input);
+		void	convertFromChar(const std::string& input);
+		void	convertFromInt(const std::string& input);
+		void	convertFromFloat(const std::string& input);
+		void	convertFromDouble(const std::string& input);
 
 };
 
