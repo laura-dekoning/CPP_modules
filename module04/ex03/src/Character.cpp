@@ -6,26 +6,26 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/20 15:07:45 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/24 17:13:29 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/24 18:26:32 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 #include <iostream>
 
-AMateria* Character::_onTheFloor[40] = {nullptr};
-int Character::_dropped = 0;
-
-Character::Character(std::string const& name) : _name(name){
+Character::Character(std::string const& name) :_name(name), _dropped(0){
 	for (int idx = 0; idx < 4; idx++)
 		_inventory[idx] = nullptr;
 	for (int idx = 0; idx < 40; idx++)
 		_onTheFloor[idx] = nullptr;
-	_dropped = 0;
 	std::cout << "🧙 Character '" << _name << "' enters the world!" << std::endl;
 }
 
-Character::Character(const Character &copy) : _name(copy.getName()){
+Character::Character(const Character &copy) : _name(copy.getName() + "_copy"){
+	for (int idx = 0; idx < 4; idx++)
+		_inventory[idx] = nullptr;
+	for (int idx = 0; idx < 40; idx++)
+		_onTheFloor[idx] = nullptr;
 	for (int idx = 0; idx < 4; idx++){
 		if (copy._inventory[idx])
 			_inventory[idx] = copy._inventory[idx]->clone();
@@ -150,6 +150,7 @@ void Character::unequip(int idx){
 			_onTheFloor[_dropped] = _inventory[idx];
 			_dropped++;
 			_inventory[idx] = NULL;
+			std::cout << "💨 " << getName() << " emptied slot " << idx << "!\n" << std::endl;
 		}
 		else
 			std::cout << "😅 Woah… the floor is maxed out! No more materia can fit here." << std::endl;

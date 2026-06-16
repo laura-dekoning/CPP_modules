@@ -6,7 +6,7 @@
 /*   By: lade-kon <lade-kon@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2025/10/20 14:26:23 by lade-kon      #+#    #+#                 */
-/*   Updated: 2025/10/24 17:14:53 by lade-kon      ########   odam.nl         */
+/*   Updated: 2025/10/24 17:57:55 by lade-kon      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,12 @@ int main() {
 
 	// Test deep copy
 	std::cout << "\n✨ Cloning hero into heroClone" << std::endl;
-	Character* heroClone = new Character(hero->getName() + "_copy"); // cast to concrete type for copy constructor
+	Character* heroClone = new Character(*dynamic_cast<Character*>(hero)); // cast to concrete type for copy constructor
 	heroClone->use(0, *enemy);
 	heroClone->use(1, *enemy);
 
 	// Unequip a Materia from clone and show original still works
-	std::cout << "\n🛡️ HeroClone unequips slot 0" << std::endl;
+	std::cout << "\n🛡️  HeroClone unequips slot 0" << std::endl;
 	heroClone->unequip(0);
 	std::cout << "Original hero still uses ice:" << std::endl;
 	hero->use(0, *enemy);
