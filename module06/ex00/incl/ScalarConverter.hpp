@@ -5,6 +5,8 @@
 #include <cctype>
 #include <cstdlib>
 #include <iostream>
+#include <limits>
+#include <cmath>
 
 class ScalarConverter
 {
@@ -17,16 +19,20 @@ class ScalarConverter
 		ScalarConverter& operator=(const ScalarConverter &other);
 		~ScalarConverter();
 		
-		bool	qualifiesAsChar(const std::string& input);
-		bool	qualifiesAsInt(const std::string& input);
-		bool	qualifiesAsFloat(const std::string& input);
-		bool	qualifiesAsDouble(const std::string& input);
+		static bool	qualifiesAsChar(const std::string& input);
+		static bool	qualifiesAsInt(const std::string& input);
+		static bool	qualifiesAsFloat(const std::string& input);
+		static bool	qualifiesAsDouble(const std::string& input);
 	
-		void	convertFromChar(const std::string& input);
-		void	convertFromInt(const std::string& input);
-		void	convertFromFloat(const std::string& input);
-		void	convertFromDouble(const std::string& input);
+		static void	convertFromChar(const std::string& input);
+		static void	convertFromInt(const std::string& input);
+		static void	convertFromFloat(const std::string& input);
+		static void	convertFromDouble(const std::string& input);
 
+		static void	printFromChar(char value);
+		static void	printFromInt(int value);
+		static void	printFromFloat(float value);
+		static void	printFromDouble(double value);
 };
 
 #endif
