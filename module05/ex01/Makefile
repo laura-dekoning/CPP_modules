@@ -6,7 +6,7 @@
 #    By: lade-kon <lade-kon@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/10/28 13:37:26 by lade-kon      #+#    #+#                  #
-#    Updated: 2026/05/08 12:09:08 by lade-kon      ########   odam.nl          #
+#    Updated: 2026/06/16 20:45:57 by lade-kon      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ INCLUDES	:=	-I $(INCL)
 
 SRC_DIR		:=	src
 SRC_FILES	:=	Form.cpp \
+				Bureaucrat.cpp \
 				main.cpp
 
 SRC			:=	$(addprefix $(SRC_DIR)/, $(SRC_FILES))
