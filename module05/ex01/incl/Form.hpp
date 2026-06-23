@@ -4,6 +4,7 @@
 #include <string>
 #include <exception>
 #include <ostream>
+#include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
@@ -17,10 +18,19 @@ private:
 public:
 	Form();
 	Form(const std::string &name, int signGrade, int execGrade);
-	Form
+	Form(const Form &other);
+	Form &operator=(const Form &other);
+	
 	~Form();
 
 	void	beSigned(const Bureaucrat &b);
+	void	validateGrade(int grade) const;
+
+	//getters
+	const std::string&	getName() const;
+	const std::string	getSigned() const;
+	int					getSignGrade() const;
+	int					getExecuteGrade() const;
 
 	//exceptions
 	class GradeTooHighException : public std::exception
@@ -36,6 +46,6 @@ public:
 	};
 };
 
-std::ostream&	operator<<(std::ostream &os, Form f);
+std::ostream&	operator<<(std::ostream &os, const Form &f);
 
 #endif
