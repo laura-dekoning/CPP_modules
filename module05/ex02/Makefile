@@ -6,11 +6,11 @@
 #    By: lade-kon <lade-kon@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/10/28 13:37:26 by lade-kon      #+#    #+#                  #
-#    Updated: 2025/10/28 15:20:45 by lade-kon      ########   odam.nl          #
+#    Updated: 2026/06/23 16:48:57 by lade-kon      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:=	Bureaucrat
+NAME		:=	Intern
 
 CC			:=	c++
 FLAGS		:=	-Wall -Wextra -Werror -std=c++11 -g -fsanitize=address
@@ -20,6 +20,8 @@ INCLUDES	:=	-I $(INCL)
 
 SRC_DIR		:=	src
 SRC_FILES	:=	Bureaucrat.cpp \
+				Form.cpp \
+				Intern.cpp \
 				main.cpp
 
 SRC			:=	$(addprefix $(SRC_DIR)/, $(SRC_FILES))
