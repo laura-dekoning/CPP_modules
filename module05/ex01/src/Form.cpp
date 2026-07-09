@@ -51,9 +51,9 @@ const std::string&	Form::getName() const{
 
 const std::string	Form::getSigned() const{
 	if (_signed == false)
-		return ("NO");
+		return ("\033[31mNO\033[0m");
 	else
-		return ("YES");
+		return ("\033[32mYES\033[0m");
 }
 
 int	Form::getSignGrade() const{
@@ -73,6 +73,6 @@ const char* Form::GradeTooLowException::what() const throw(){
 }
 
 std::ostream&	operator<<(std::ostream &os, const Form &f){
-	os << f.getName() << ", signed: " << f.getSigned() << ", sign grade: " << f.getSignGrade() << ", execute grade: " << f.getExecuteGrade() << std::endl;
+	os << f.getName() << ", signed: " << f.getSigned() << ", sign grade: " << f.getSignGrade() << ", execute grade: " << f.getExecuteGrade();
 	return (os);
 }
