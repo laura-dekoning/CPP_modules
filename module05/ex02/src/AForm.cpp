@@ -2,7 +2,7 @@
 #include "Bureaucrat.hpp"
 
 
-AForm::AForm() : _name("Default"), _signGrade(20), _executeGrade(20){
+AForm::AForm() : _name("Default"), _signGrade(150), _executeGrade(150){
 	std::cout << "📄 AForm '" << _name << "' appears on the desk, patiently waiting for someone's signature." << std::endl;
 }
 
@@ -29,7 +29,14 @@ AForm::~AForm(){
 	std::cout << "🗑️ AForm '" << _name << "' has been shredded. Evidence destroyed." << std::endl;
 }
 
-void	execute(Bureaucrat const &executor) const;
+void	AForm::beExecuted(Bureaucrat const &executor) const{
+	if (executor.getGrade() > _executeGrade)
+		throw GradeTooLowException();
+	else if (!_signed)
+		throw std::runtime_error("Form not signed!");
+
+	execute();
+}
 
 void	AForm::beSigned(const Bureaucrat &b){
 	if (b.getGrade() > _signGrade)

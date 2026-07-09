@@ -10,6 +10,8 @@ class RobotomyRequestForm : public AForm
 {
 private:
 	const std::string	_target;
+	static const int	_signGrade;
+	static const int	_execGrade;
 public:
 	RobotomyRequestForm();
 	RobotomyRequestForm(const std::string& target);
@@ -17,7 +19,7 @@ public:
 	RobotomyRequestForm &operator=(const RobotomyRequestForm &other);
 	~RobotomyRequestForm();
 
-	void	executeAction() const override;
+	void	execute() const override;
 };
 
 #endif

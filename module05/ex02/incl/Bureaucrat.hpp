@@ -6,7 +6,7 @@
 #include <iostream>
 #include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -20,8 +20,8 @@ public:
 	Bureaucrat& operator=(const Bureaucrat &other);
 	~Bureaucrat();
 
-	void	signForm(Form &form);
-	void	executeAForm(AForm const &form) const;
+	void	signForm(AForm &form) const;
+	void	executeForm(AForm const &form) const;
 
 	//helpers
 	void	validateGrade(int grade) const;
