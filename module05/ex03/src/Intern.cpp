@@ -20,12 +20,18 @@ Intern::~Intern(){
 }
 
 AForm*	Intern::makeForm(const std::string& formName, const std::string& target){
+	FormEntry	formTable[3] = {
+		{"shrubbery creation", &Intern::createShrubberyCreation},
+		{"robotomy request", &Intern::createRobotomyrequest},
+		{"presidential pardon", &Intern::createPresidentialPardon},
+	};
 	for (int i = 0; i < 3; i++)
 	{
-		if (formName == FormEntryTable[i].name)
-			return (FormEntryTable[i].creator(target));
+		if (formName == formTable[i].name)
+			return (formTable[i].creator(target));
 	}
 	std::cout << "Form name is unknown!" << std::endl;
+	return (NULL);
 }
 
 AForm* Intern::createShrubberyCreation(const std::string& target){

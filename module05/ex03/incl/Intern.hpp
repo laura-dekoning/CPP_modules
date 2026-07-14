@@ -9,6 +9,12 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
+struct	FormEntry
+{
+	std::string	name;
+	AForm*	(*creator)(const std::string &);
+};
+
 class	Intern
 {
 public:
@@ -18,15 +24,12 @@ public:
 	~Intern();
 
 	AForm*	makeForm(const std::string& formName, const std::string& target);
-	AForm*	createShrubberyCreation(const std::string& target);
-	AForm*	createRobotomyrequest(const std::string& target);
-	AForm*	createPresidentialPardon(const std::string& target);
+
+private:
+	static AForm*	createShrubberyCreation(const std::string& target);
+	static AForm*	createRobotomyrequest(const std::string& target);
+	static AForm*	createPresidentialPardon(const std::string& target);
 };
 
-struct	FormEntryTable
-{
-	std::string	name;
-	AForm*	(*creator)(const std::string &);
-};
 
 #endif

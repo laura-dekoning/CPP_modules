@@ -6,11 +6,11 @@
 #    By: lade-kon <lade-kon@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/10/28 13:37:26 by lade-kon      #+#    #+#                  #
-#    Updated: 2026/07/14 15:36:16 by lade-kon      ########   odam.nl          #
+#    Updated: 2026/07/14 18:11:28 by lade-kon      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:=	Bureaucrat
+NAME		:=	Intern
 
 CC			:=	c++
 FLAGS		:=	-Wall -Wextra -Werror -std=c++11 -g -fsanitize=address
@@ -53,10 +53,12 @@ clean :
 	@ echo "${CYAN}Objects removed.${RESET}"
 
 fclean : clean
-	@ rmdir $(OBJ_DIR)
+	@ rm -rf $(OBJ_DIR)
 	@ echo "${BLUE}Object folder removed.${RESET}"
-	@ rm -f $(NAME)
-	@ echo "${YELLOW}$(NAME) fcleaned!${RESET}"
+	@ rm -f $(NAME)	
+	@ rm -f *_shrubbery
+	@ echo "${YELLOW}$(NAME) executable removed${RESET}"
+	@ echo "${GREEN}Completed fclean${RESET}"
 
 re : fclean all
 
