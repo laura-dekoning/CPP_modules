@@ -4,15 +4,16 @@
 #include <string>
 #include <exception>
 #include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
 private:
 	const std::string	_name;
 	int					_grade;
+
 public:
 	Bureaucrat();
 	Bureaucrat(const std::string &name, int grade);
@@ -20,8 +21,9 @@ public:
 	Bureaucrat& operator=(const Bureaucrat &other);
 	~Bureaucrat();
 
-	void	signForm(Form &form);
-	
+	void	signForm(AForm &form) const;
+	void	executeForm(AForm const &form) const;
+
 	//helpers
 	void	validateGrade(int grade) const;
 	void	incrementGrade(int points);

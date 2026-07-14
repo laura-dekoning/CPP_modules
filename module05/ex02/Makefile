@@ -6,7 +6,7 @@
 #    By: lade-kon <lade-kon@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/10/28 13:37:26 by lade-kon      #+#    #+#                  #
-#    Updated: 2026/07/09 21:35:16 by lade-kon      ########   odam.nl          #
+#    Updated: 2026/07/14 15:04:56 by lade-kon      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,13 +49,16 @@ $(OBJ_DIR)/%.o:$(SRC_DIR)/%.cpp | $(OBJ_DIR)
 
 clean :
 	@ rm -rf $(OBJ)
-	@ echo "${CYAN}Objects removed.${RESET}"
+	@ echo "${CYAN}Objects removed${RESET}"
 
 fclean : clean
 	@ rmdir $(OBJ_DIR)
-	@ echo "${BLUE}Object folder removed.${RESET}"
+	@ echo "${BLUE}Object folder removed${RESET}"
 	@ rm -f $(NAME)
-	@ echo "${YELLOW}$(NAME) fcleaned!${RESET}"
+	@ rm -f *_shrubbery
+	@ echo "${YELLOW}$(NAME) executable removed${RESET}"
+	@ echo "${GREEN}Completed fclean${RESET}"
+
 
 re : fclean all
 

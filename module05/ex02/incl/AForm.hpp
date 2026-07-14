@@ -25,10 +25,10 @@ public:
 	AForm &operator=(const AForm &other);
 	virtual ~AForm();
 
-	virtual void	beExecuted(Bureaucrat const &executor) const;
-
-	void	beSigned(const Bureaucrat &b);
 	void	validateGrade(int grade) const;
+	void	checkGrade(int grade, int requiredGrade) const;
+	void	beSigned(const Bureaucrat &b);
+	void	beExecuted(Bureaucrat const &executor) const;
 
 	//getters
 	const std::string&	getName() const;

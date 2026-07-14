@@ -1,5 +1,5 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 #include <iostream>
 
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(100){
@@ -26,7 +26,7 @@ Bureaucrat::~Bureaucrat(){
 	std::cout << "📉 Bureaucrat '" << getName() << "' clocks out forever — the paperwork survives without them!" << std::endl;
 }
 
-void	Bureaucrat::signForm(Form &form){
+void	Bureaucrat::signForm(AForm &form) const{
 	try
 	{
 		form.beSigned(*this);
@@ -35,6 +35,18 @@ void	Bureaucrat::signForm(Form &form){
 	catch (std::exception &e)
 	{
 		std::cout << _name << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm(AForm const &form) const{
+	try
+	{
+		form.beExecuted(*this);
+		std::cout << _name << " executed " << form.getName() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << _name << " couldn't execute " << form.getName() << " because " << e.what() << std::endl;
 	}
 }
 
