@@ -6,7 +6,7 @@
 #    By: lade-kon <lade-kon@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/06/23 13:24:16 by lade-kon      #+#    #+#                  #
-#    Updated: 2025/10/24 17:20:34 by lade-kon      ########   odam.nl          #
+#    Updated: 2026/07/14 18:11:59 by lade-kon      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,8 +58,8 @@ clean :
 	@ echo "${CYAN}Objects removed.${RESET}"
 
 fclean : clean
-	@ rmdir $(OBJ_DIR)/$(SRC_TEST)
-	@ rmdir $(OBJ_DIR)
+	@ rm -rf $(OBJ_DIR)/$(SRC_TEST)
+	@ rm -rf $(OBJ_DIR)
 	@ echo "${BLUE}Object folder removed.${RESET}"
 	@ rm -f $(NAME)
 	@ echo "${YELLOW}$(NAME) fcleaned!${RESET}"
