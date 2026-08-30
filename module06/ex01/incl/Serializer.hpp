@@ -14,7 +14,6 @@ struct Data
 	bool	operator==(Data &other);
 };
 
-
 class Serializer
 {
 private:

@@ -38,7 +38,7 @@ void identify(Base& p){
 		std::cout << "A\n";
 		return;
 	}
-	catch(...)
+	catch(const std::bad_cast&)
 	{
 	}
 	try{
@@ -46,7 +46,7 @@ void identify(Base& p){
 		std::cout << "B\n";
 		return;
 	}
-	catch(...)
+	catch(const std::bad_cast&)
 	{
 	}
 	try{
@@ -54,7 +54,7 @@ void identify(Base& p){
 		std::cout << "C\n";
 		return;
 	}
-	catch(...)
+	catch(const std::bad_cast&)
 	{
 	}
 }

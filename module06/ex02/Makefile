@@ -6,11 +6,11 @@
 #    By: lade-kon <lade-kon@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/10/28 13:37:26 by lade-kon      #+#    #+#                  #
-#    Updated: 2026/07/14 18:11:59 by lade-kon      ########   odam.nl          #
+#    Updated: 2026/08/30 13:47:00 by lade-kon      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:=	Base
+NAME		:=	base
 
 CC			:=	c++
 FLAGS		:=	-Wall -Wextra -Werror -std=c++11 -g -fsanitize=address

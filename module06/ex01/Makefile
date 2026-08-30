@@ -6,11 +6,11 @@
 #    By: lade-kon <lade-kon@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2025/10/28 13:37:26 by lade-kon      #+#    #+#                  #
-#    Updated: 2026/07/14 18:11:59 by lade-kon      ########   odam.nl          #
+#    Updated: 2026/08/30 13:46:55 by lade-kon      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		:=	Serializer
+NAME		:=	serialize
 
 CC			:=	c++
 FLAGS		:=	-Wall -Wextra -Werror -std=c++11 -g -fsanitize=address
