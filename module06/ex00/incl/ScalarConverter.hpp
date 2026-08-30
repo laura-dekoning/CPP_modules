@@ -7,6 +7,8 @@
 #include <iostream>
 #include <limits>
 #include <cmath>
+#include <iomanip>
+#include <exception>
 
 class ScalarConverter
 {

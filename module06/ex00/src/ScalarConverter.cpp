@@ -20,10 +20,10 @@ void ScalarConverter::convert(const std::string input){
 		convertFromInt(input);
 	else if (qualifiesAsFloat(input))
 		convertFromFloat(input);
-	else if (qualifiesAsDouble(input))
+	else if (qualifiesAsDouble(input) || input == "2147483648" || input == "-2147483649")
 		convertFromDouble(input);
 	else
-		std::cerr << "Options for <literal>:\n- char\n- int\n- float\n- double" << std::endl;
+		std::cerr << "Options for <literal>:\n- 'char'\n- int\n- float\n- double" << std::endl;
 }
 
 bool	ScalarConverter::qualifiesAsChar(const std::string& input){
@@ -31,24 +31,26 @@ bool	ScalarConverter::qualifiesAsChar(const std::string& input){
 }
 
 bool	ScalarConverter::qualifiesAsInt(const std::string& input){
-	try
-	{
-		std::size_t	pos;
-		std::stoi(input, &pos);
+	std::size_t	pos;
 
-		return (pos == input.length());
+	try {
+		std::stoi(input, &pos);
 	}
-	catch (...)
-	{
+	catch (const std::invalid_argument) {
 		return (false);
 	}
+	catch (const std::out_of_range) {
+		return (false);
+	}
+
+	return (pos == input.length());
 }
 
 bool	ScalarConverter::qualifiesAsFloat(const std::string& input){
 	if (input == "nanf" || input == "+inff" || input == "-inff")
 		return (true);
 
-	if (input[input.length() - 1] != 'f')
+	if (input.length() < 2 || input[input.length() - 1] != 'f')
 		return (false);
 
 	char*	end;
@@ -69,7 +71,6 @@ bool	ScalarConverter::qualifiesAsDouble(const std::string& input){
 	std::strtod(input.c_str(), &end);
 	return (*end == '\0');
 }
-
 
 void	ScalarConverter::convertFromChar(const std::string& input){
 	char value;
@@ -107,7 +108,7 @@ void	ScalarConverter::printFromChar(char value){
 		std::cout << "char:\tNon displayable" << "\n";
 
 	std::cout << "int:\t" << static_cast<int>(value) << "\n";
-	std::cout << "float:\t" << static_cast<float>(value) << "f\n";
+	std::cout << "float:\t" << std::fixed << std::setprecision(1) << static_cast<float>(value) << "f\n";
 	std::cout << "double:\t" << static_cast<double>(value) << "\n";
 }
 
@@ -120,7 +121,7 @@ void	ScalarConverter::printFromInt(int value){
 		std::cout << "char:\t\'" << static_cast<char>(value) << "\'\n";
 
 	std::cout << "int:\t" << value << "\n";
-	std::cout << "float:\t" << static_cast<float>(value) << "f\n";
+	std::cout << "float:\t" << std::fixed << std::setprecision(1) << static_cast<float>(value) << "f\n";
 	std::cout << "double:\t" << static_cast<double>(value) << "\n";
 }
 
@@ -139,8 +140,17 @@ void	ScalarConverter::printFromFloat(float value){
 	else
 		std::cout << "int:\t" << static_cast<int>(value) << "\n";
 
-	std::cout << "float:\t" << value << "f\n";
-	std::cout << "double:\t" << static_cast<double>(value) << "\n";
+	if (std::isinf(value))
+		std::cout << (value > 0 ? "float:\t+inff\n" : "float:\t-inff\n");
+	else if (value == static_cast<int>(value))
+		std::cout << "float:\t" << std::fixed << std::setprecision(1) << value << "f\n";
+	else
+		std::cout << "float:\t" << value << "f\n";
+
+	if (std::isinf(value))
+		std::cout << (value > 0 ? "double:\t+inf\n" : "double:\t-inf\n");
+	else
+		std::cout << "double:\t" << static_cast<double>(value) << "\n";
 }
 
 void	ScalarConverter::printFromDouble(double value){
@@ -158,10 +168,17 @@ void	ScalarConverter::printFromDouble(double value){
 	else
 		std::cout << "int:\t" << static_cast<int>(value) << "\n";
 
-	if (value < std::numeric_limits<float>::lowest() || value > std::numeric_limits<float>::max())
+	if ((!std::isnan(value) && !std::isinf(value)) && (value < std::numeric_limits<float>::lowest() || value > std::numeric_limits<float>::max()))
 		std::cout << "float:\timpossible\n";
+	else if (std::isinf(value))
+		std::cout << (value > 0 ? "float:\t+inff\n" : "float:\t-inff\n");
+	else if (value == static_cast<int>(value))
+		std::cout << "float:\t" << std::fixed << std::setprecision(1) << static_cast<float>(value) << "f\n";
 	else
-		std::cout << "float:\t" << static_cast<float>(value) << "f\n";
+		std::cout << "float:\t" << static_cast<double>(value) << "f\n";
 
-	std::cout << "double:\t" << value << "\n";
+	if (std::isinf(value))
+		std::cout << (value > 0 ? "double:\t+inf\n" : "double:\t-inf\n");
+	else
+		std::cout << "double:\t" << value << "\n";
 }
